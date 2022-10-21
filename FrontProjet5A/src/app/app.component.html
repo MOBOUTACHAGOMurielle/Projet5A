@@ -8,26 +8,118 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <body>
-  <div>
-    <mat-toolbar>
-      <form class="example-form">
-        <input type="text" placeholder="Je recherche...">
-        <button mat-icon-button class="example-icon" aria-label="Example icon-recherche with menu icon">
-          <mat-icon>search</mat-icon>
-        </button>
-        <!-- <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
-            {{street}}
-          </mat-option>
-        </mat-autocomplete> -->
-      </form>
-      <!-- <mat-form-field appearance="outline">
+  <section class = "un">
+    <div>
+      <img src="assets/Maven.PNG" width="150px" height="60px" class = "image">
+    </div>
+
+    <div id="color" class ="rechercher">
+      <mat-form-field appearance="outline">
         <mat-label>Je recherche...</mat-label>
-        <input matInput placeholder="Je recherche...">
-        <mat-icon matSuffix>search</mat-icon>
-      </mat-form-field> -->
+        <input type="text" matInput placeholder="Je recherche..">
+        <mat-icon matSuffix id="color">search</mat-icon>
+      </mat-form-field>   
+    </div>
+
+    <div id="color" class ="connection">
+      Se connecter
+      <mat-icon >person</mat-icon>
+    </div>
+
+    <div id="color" class= "panier">
+      Mon panier 
+      <mat-icon >add_shopping_cart</mat-icon>
+    </div>
+  </section>
+
+  <p id="bienvenue"> Bienvenue dans notre boutique!</p>
+
+  <section class="deux">
+    <mat-toolbar color = "chocolat">
+      <div>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <span class="example-spacer"></span>
+      <div>Jean</div>
+      <span class="example-spacer"></span>
+      <div>Manteau</div>
+      <span class="example-spacer"></span>
+      <div>Tee-Shirt</div>
+      <span class="example-spacer"></span>
+      <div>Accessoires</div>
     </mat-toolbar>
-  </div>
+  </section>
+
+  <section class = "trois">
+    <mat-toolbar-row>
+      <div>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>Jean</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="assets/jeans.jpg" alt="" height="220px">
+          <mat-card-content>
+            <p>
+              Achetez vos jeans 100% coton
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+  
+      <span class="example-spacer"></span>
+
+      <div>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>Manteau</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="assets/manteau.jpg" alt="" height="220px"> 
+          <mat-card-content>
+            <p>
+              Soyey prêts pour l'hiver
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <span class="example-spacer"></span>
+
+      <div>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>Tee-Shirt</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="assets/teeshirt.webp" alt="" height="220px"> 
+          <mat-card-content>
+            <p>
+              Découvrez nos tee-shirt eco
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <span class="example-spacer"></span>
+      
+      <div>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>Accessoires</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="assets/montre.jfif" alt="" height="220px"> 
+          <mat-card-content>
+            <p>
+              Venez découvir nos accessoires
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+    </mat-toolbar-row>
+    
+  </section>
+
 </body>
 <!-- <style>
   :host {
