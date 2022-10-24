@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { JeanComponent } from './jean/jean.component';
 
 const routes: Routes = [];
 
