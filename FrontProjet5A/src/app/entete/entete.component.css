@@ -1,0 +1,31 @@
+#color {
+    color: azure;
+}
+
+.un {
+    display:flex;
+    background: black;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+}
+
+
+
+.un>*{
+    flex: 1;
+}
+
+#bienvenue {
+    font-style: italic;
+    font-size: larger;
+    margin: 1%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.person{
+    padding-top: 6px;
+    padding-right: 30px;
+}
