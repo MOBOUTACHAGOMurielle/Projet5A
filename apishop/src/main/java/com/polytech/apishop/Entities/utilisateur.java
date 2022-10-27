@@ -28,11 +28,14 @@ public class utilisateur {
     @OneToMany(mappedBy = "utilisateur")
     private List<commande> commande;
 
+    @OneToMany(mappedBy = "utilisateur")
+    private List<commentaire> commentaire;
+
     public utilisateur(){
 
     }
 
-    public utilisateur(String login, String mdp, String nom, String prenom, String email, List<role> role, Date date_creation_compte, panier panier, List<commande> commande){
+    public utilisateur(String login, String mdp, String nom, String prenom, String email, List<role> role, Date date_creation_compte, panier panier, List<commande> commande, List<commentaire> commentaire){
         this.login = login;
         this.mdp = mdp;
         this.nom = nom;
@@ -42,6 +45,7 @@ public class utilisateur {
         this.date_creation_compte = date_creation_compte;
         this.panier = panier;
         this.commande = commande;
+        this.commentaire = commentaire;
     }
 
 
@@ -127,6 +131,15 @@ public class utilisateur {
 
     public void setCommande(List<commande> commande) {
         this.commande = commande;
+    }
+
+    
+    public List<commentaire> getCommentaire() {
+        return this.commentaire;
+    }
+
+    public void setCommentaire(List<commentaire> commentaire) {
+        this.commentaire = commentaire;
     }
 
 }

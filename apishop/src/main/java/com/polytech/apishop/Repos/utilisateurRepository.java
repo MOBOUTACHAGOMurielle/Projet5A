@@ -9,5 +9,5 @@ import com.polytech.apishop.Entities.utilisateur;
 
 @Repository
 public interface utilisateurRepository extends JpaRepository<utilisateur,Integer> {
-    List<utilisateur> findAll();
+    
 }

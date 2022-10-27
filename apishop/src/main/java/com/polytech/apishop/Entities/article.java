@@ -1,5 +1,7 @@
 package com.polytech.apishop.Entities;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,13 +13,10 @@ public class article {
     private String description;
     private float prix;
     private String taille;
-    private int note;
-    private String commentaire;
-    private float avis;
     @Column(nullable = false)
     private int quantite_stock;
     private String image;
-
+    
     @ManyToOne
     @JoinColumn(name = "id_categories", referencedColumnName = "id_categories")
     private categories categories;
@@ -30,23 +29,24 @@ public class article {
     @JoinColumn(name = "id_panier", referencedColumnName = "id_panier")
     private panier panier;
 
+    @OneToMany(mappedBy = "article")
+    private List<commentaire> commentaire;
+
     public article() {
 
     }
 
-    public article(String nom, String description, float prix, String taille, int note, String commentaire, float avis, int quantite_stock, String image, categories categories, commande commande, panier panier) {
+    public article(String nom, String description, float prix, String taille, int quantite_stock, String image, categories categories, commande commande, panier panier, List<commentaire> commentaire) {
         this.nom = nom;
         this.description = description;
         this.prix = prix;
         this.taille = taille;
-        this.note = note;
-        this.commentaire = commentaire;
-        this.avis = avis;
         this.quantite_stock = quantite_stock;
         this.image = image;
         this.categories = categories;
         this.commande = commande;
         this.panier = panier;
+        this.commentaire = commentaire;
     }
 
     public Integer getId_article() {
@@ -89,30 +89,6 @@ public class article {
         this.taille = taille;
     }
 
-    public int getNote() {
-        return this.note;
-    }
-
-    public void setNote(int note) {
-        this.note = note;
-    }
-
-    public String getCommentaire() {
-        return this.commentaire;
-    }
-
-    public void setCommentaire(String commentaire) {
-        this.commentaire = commentaire;
-    }
-
-    public float getAvis() {
-        return this.avis;
-    }
-
-    public void setAvis(float avis) {
-        this.avis = avis;
-    }
-
     public int getQuantite_stock() {
         return this.quantite_stock;
     }
@@ -153,4 +129,11 @@ public class article {
         this.commande = commande;
     }
 
+    public List<commentaire> getCommentaire() {
+        return this.commentaire;
+    }
+
+    public void setCommentaire(List<commentaire> commentaire) {
+        this.commentaire = commentaire;
+    }
 }

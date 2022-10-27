@@ -9,5 +9,5 @@ import com.polytech.apishop.Entities.categories;
 
 @Repository
 public interface categoriesRepository extends JpaRepository<categories,Integer>{
-    List<categories> findAll();
+    
 }

@@ -9,5 +9,5 @@ import com.polytech.apishop.Entities.panier;
 
 @Repository
 public interface panierRepository extends JpaRepository<panier,Integer> {
-    List<panier> findByClient();
+    
 }

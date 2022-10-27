@@ -9,5 +9,5 @@ import com.polytech.apishop.Entities.commande;
 
 @Repository
 public interface commandeRepository extends JpaRepository<commande,Integer> {
-    List<commande> findAll();
+    
 }
