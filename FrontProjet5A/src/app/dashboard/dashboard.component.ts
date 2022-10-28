@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { categorie } from '../categories';
+import { dashboardService } from './dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,14 +9,13 @@ import { categorie } from '../categories';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dashboardService: dashboardService) { }
+
+  listeCategories: categorie[] = [];
 
   ngOnInit(): void {
+    this.listeCategories = this.dashboardService.getDashboard();
   }
-  listeCategories: categorie[] = [
-    {id:1, name:"Jean", image:"assets/jeans.jpg", description: "Achetez vos jeans 100% coton"},
-    {id:2, name:"Manteau", image:"assets/manteau.jpg", description: "Soyey prêts pour l'hiver avec nos manteaux vapeurs"},
-    {id:3, name:"Tee-Shirt", image:"assets/teeshirt.webp", description: "Découvrez nos tee-shirt ecologique pour sauver la planète"},
-    {id:4, name:"Accessoires", image:"assets/montre.jfif", description: "Venez découvir nos accessoires"}
-  ];
+
+
 }

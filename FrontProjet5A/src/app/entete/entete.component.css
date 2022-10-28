@@ -11,7 +11,9 @@
     height: 10%;
 }
 
-
+.rechercher {
+    margin-top: 1.3em;
+}
 
 .un>*{
     flex: 1;
@@ -25,7 +27,7 @@
     align-items: center;
     justify-content: center;
 }
-.person{
-    padding-top: 6px;
-    padding-right: 30px;
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: white;
 }
