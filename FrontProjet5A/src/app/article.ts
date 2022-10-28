@@ -6,6 +6,6 @@ export interface article {
     prix: number;
     taille: string;
     note: number;
-    commentaire: string;
+    //commentaire: string;
     quantite: number;
 }

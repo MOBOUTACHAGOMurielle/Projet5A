@@ -1,6 +1,7 @@
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav class="sidenav">
+    
     <mat-nav-list  *ngIf="listeCategories.length>0" >
       <a mat-list-item *ngFor="let acategorie of listeCategories" routerLink="/{{acategorie.name|lowercase}}">{{acategorie.name}}</a>
     </mat-nav-list>

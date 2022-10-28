@@ -6,7 +6,7 @@
     <div id="color" class ="rechercher">
       <mat-form-field appearance="outline">
         <mat-label>Je recherche...</mat-label>
-        <input type="text" matInput placeholder="Je recherche..">
+        <input  type="text" matInput placeholder={{articleFilter}} [ngModel]="articleFilter">
         <mat-icon matSuffix id="color">search</mat-icon>
       </mat-form-field>   
     </div>
