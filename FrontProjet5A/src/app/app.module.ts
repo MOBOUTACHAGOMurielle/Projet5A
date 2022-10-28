@@ -35,6 +35,7 @@ import { StartRatingComponent } from './start-rating/start-rating.component';
 import { AllArticlesComponent } from './all-articles/all-articles.component';
 import { FormulaireArticleComponent } from './formulaire-article/formulaire-article.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { MatRadioModule } from '@angular/material/radio';
       { path: 'manteau/:id', component: ManteauDetailComponent },
       { path: 'tee-shirt/:id', component: TeeShirtComponent},
       { path: 'accessoires/:id', component: AccessoiresComponent},
-      { path: 'formulaire-article', component: FormulaireArticleComponent}
+      { path: 'formulaire-article', component: FormulaireArticleComponent},
+      { path: 'inscription', component: ConnexionComponent}
     ])
   ],
   providers: [],
