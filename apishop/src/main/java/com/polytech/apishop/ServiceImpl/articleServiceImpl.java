@@ -30,16 +30,24 @@ public class articleServiceImpl implements articleService {
         articleRep.deleteById(id_article);
     }
 
+    public void addArticle(String name, String description, float  prix, String taille, int stock, String img ){
+
+        article _article = new article(name,description,prix,taille,stock,img, null,null,null,null);
+
+        articleRep.save(_article);
+
+    }
+
     public article modifierArticle(Optional<article> articleModifier, article modif){
         article _articleModifier = articleModifier.get();
         
-        _articleModifier.setNom(modif.getNom());
+        _articleModifier.setName(modif.getName());
         _articleModifier.setDescription(modif.getDescription());
         _articleModifier.setPrix(modif.getPrix());
         _articleModifier.setTaille(modif.getTaille());
         _articleModifier.setQuantite_stock(modif.getQuantite_stock());
         _articleModifier.setImage(modif.getImage());
-        _articleModifier.setNom(modif.getNom());
+        _articleModifier.setName(modif.getName());
 
         return modif;
     }

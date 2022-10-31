@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { HttpErrorResponse } from "@angular/common/http";
 import { throwError } from "rxjs";
+import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn: 'root'
@@ -12,17 +13,26 @@ import { throwError } from "rxjs";
 
 export class jeanService {
 
-    private readonly JEAN_API_URL = '/assets/api/jean.json';
+    // private readonly JEAN_API_URL = '/assets/api/jean.json';
+    private readonly JEAN_API_URL = environment.host;
 
     constructor(private http: HttpClient){}
 
     public getJean(): Observable<article[]> {
 
-        return this.http.get<article[]>(this.JEAN_API_URL).pipe(
-            tap(jeanHomme => console.log('jeans: ', jeanHomme)),
-            catchError(this.handleError)
-        );
+        // return this.http.get<article[]>(this.JEAN_API_URL).pipe(
+        //     tap(jeanHomme => console.log('jeans: ', jeanHomme)),
+        //     catchError(this.handleError)
+        // );
+
+       
+        return this.http.get<article[]>(`${this.JEAN_API_URL}/article/liste`).pipe(
+          tap(jeanHomme => console.log('jeans: ', jeanHomme)),
+          catchError(this.handleError)
+      );
     }
+
+
 
     private handleError(error: HttpErrorResponse) {
         if (error.status === 0) {

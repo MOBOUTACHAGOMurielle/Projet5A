@@ -1,15 +1,18 @@
 package com.polytech.apishop.Entities;
 
+import lombok.AllArgsConstructor;
+
 import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
+@AllArgsConstructor
 public class article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_article;
-    private String nom;
+    private String name;
     private String description;
     private float prix;
     private String taille;
@@ -36,8 +39,8 @@ public class article {
 
     }
 
-    public article(String nom, String description, float prix, String taille, int quantite_stock, String image, categories categories, commande commande, panier panier, List<commentaire> commentaire) {
-        this.nom = nom;
+    public article(String name, String description, float prix, String taille, int quantite_stock, String image, categories categories, commande commande, panier panier, List<commentaire> commentaire) {
+        this.name = name;
         this.description = description;
         this.prix = prix;
         this.taille = taille;
@@ -57,12 +60,12 @@ public class article {
         this.id_article = id_article;
     }
 
-    public String getNom() {
-        return this.nom;
+    public String getName() {
+        return this.name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String nom) {
+        this.name = nom;
     }
 
     public String getDescription() {

@@ -44,6 +44,10 @@ public class articleController {
         } catch (Exception e){}
     }
 
+    // /article/categorie/liste
+
+    // /article/categorie/liste
+
     @PutMapping("/modifier/{id}")
     public ResponseEntity<article> modifierArticle(@PathVariable(value = "id") Integer id_article,@RequestBody article modif){
         Optional<article> articleModifier = articleResp.findById(id_article);

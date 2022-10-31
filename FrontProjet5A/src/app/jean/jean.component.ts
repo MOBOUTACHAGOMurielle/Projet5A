@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { article } from '../article';
+// import { article } from '../formulaire-article/article';
 import { jeanService } from './jean.service';
 
 @Component({
@@ -16,13 +17,21 @@ export class JeanComponent implements OnInit {
   listeJeans: article[] = [];
 
   ngOnInit() {
-    this.jeanService.getJean().subscribe({
-      next: listeJeans => {
+    // this.jeanService.getJean().subscribe({
+    //   next: listeJeans => {
+    //     this.listeJeans = listeJeans;
+    //   },
+
+    //   error: err => this.errMsg = err
+    // });
+
+    this.jeanService.getJean().subscribe(
+      (listeJeans : article []) => {
         this.listeJeans = listeJeans;
       },
 
-      error: err => this.errMsg = err
-    });
+      // error: err => this.errMsg = err
+    );
   }
 
 
