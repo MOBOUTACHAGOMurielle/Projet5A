@@ -1,5 +1,5 @@
 export interface article {
-    id: number;
+    id_article: number;
     name: string;
     image: string;
     description: string;

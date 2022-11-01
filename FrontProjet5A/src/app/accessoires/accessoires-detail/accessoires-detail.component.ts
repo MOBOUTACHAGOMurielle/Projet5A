@@ -22,7 +22,7 @@ export class AccessoiresDetailComponent implements OnInit {
     const id: number = +this.route.snapshot.paramMap.get('id')!; //+ pour convertir un string en un nombre snapshot recupère la valeur initiale
     
     this.listeAccessoire.getAccessoires().subscribe((liste: article[]) => {
-      this.accessoire = liste.find(accessoire => accessoire.id == id)!;
+      this.accessoire = liste.find(accessoire => accessoire.id_article == id)!;
       console.log('hotel', this.accessoire);
     })
   }

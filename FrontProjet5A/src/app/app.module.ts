@@ -36,9 +36,13 @@ import { StartRatingComponent } from './start-rating/start-rating.component';
 import { AllArticlesComponent } from './all-articles/all-articles.component';
 import { FormulaireArticleComponent } from './formulaire-article/formulaire-article.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
   declarations: [
+    ConnexionComponent,
+    InscriptionComponent,
     AppComponent,
     NavComponent,
     JeanComponent,

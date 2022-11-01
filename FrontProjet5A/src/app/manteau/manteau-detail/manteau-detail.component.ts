@@ -22,7 +22,7 @@ export class ManteauDetailComponent implements OnInit {
     const id: number = +this.route.snapshot.paramMap.get('id')!;
 
     this.listeManteau.getManteau().subscribe((liste: article[]) => {
-      this.manteau = liste.find(manteau => manteau.id == id)!;
+      this.manteau = liste.find(manteau => manteau.id_article == id)!;
       console.log('hotel', this.manteau);
     })
   }

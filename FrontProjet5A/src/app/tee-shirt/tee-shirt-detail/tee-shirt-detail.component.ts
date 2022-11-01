@@ -21,7 +21,7 @@ export class TeeShirtDetailComponent implements OnInit {
     const id: number = +this.route.snapshot.paramMap.get('id')!; //+ pour convertir un string en un nombre snapshot recupère la valeur initiale
     
     this.listeTeeShirt.getTeeShirt().subscribe((liste: article[]) => {
-      this.teeShirt = liste.find(shirt => shirt.id == id)!;
+      this.teeShirt = liste.find(shirt => shirt.id_article == id)!;
       console.log('hotel', this.teeShirt);
     })
   }

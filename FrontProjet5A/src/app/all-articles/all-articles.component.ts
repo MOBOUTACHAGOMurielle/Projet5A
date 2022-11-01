@@ -24,7 +24,7 @@ export class AllArticlesComponent implements OnInit {
     const id: number = +this.route.snapshot.paramMap.get('id')!; //+ pour convertir un string en un nombre snapshot recupère la valeur initiale
     
     this.listeArticles.getArticles().subscribe((liste: article[]) => {
-      this.article = liste.find(jean => jean.id == id)!;
+      this.article = liste.find(jean => jean.id_article == id)!;
       console.log('note', this.article.note);
     })
   }

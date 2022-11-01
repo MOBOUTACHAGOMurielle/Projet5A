@@ -21,7 +21,7 @@ export class JeanDetailComponent implements OnInit {
     const id: number = +this.route.snapshot.paramMap.get('id')!; //+ pour convertir un string en un nombre snapshot recupère la valeur initiale
     
     this.listeJean.getJean().subscribe((liste: article[]) => {
-      this.jean = liste.find(jean => jean.id == id)!;
+      this.jean = liste.find(jean => jean.id_article == id)!;
       console.log('note', this.jean.note);
     })
   }
