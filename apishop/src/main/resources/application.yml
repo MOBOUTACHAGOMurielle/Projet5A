@@ -2,11 +2,19 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/apishop
     username: postgres
+<<<<<<< HEAD
     password: Azertyui*
+=======
+    password: Azertyui1*
+>>>>>>> Test2
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     hibernate :
+<<<<<<< HEAD
       ddl-auto: create
   liquibase:
     change-log: db/changelog/db.changelog-master.yaml
+=======
+      ddl-auto: create
+>>>>>>> Test2
