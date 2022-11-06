@@ -21,6 +21,11 @@ public class articleServiceImpl implements articleService {
         return listeArticle;
     }
 
+    public List<article> voirListeArticlesParNom(String name){
+        List<article> article = articleRep.findAllByNameStartingWithIgnoreCase(name);
+        return article;
+    }
+
     public String voirDescriptionArticle(Integer id_article){
         String description = articleRep.findDescription(id_article);
         return description;
@@ -32,8 +37,7 @@ public class articleServiceImpl implements articleService {
 
     public void addArticle(String name, String description, float  prix, String taille, int stock, String img ){
 
-        article _article = new article(name,description,prix,taille,stock,img, null,null,null,null);
-
+        article _article = new article(name,description,prix,taille,stock,img, null,null);
         articleRep.save(_article);
 
     }
@@ -49,6 +53,6 @@ public class articleServiceImpl implements articleService {
         _articleModifier.setImage(modif.getImage());
         _articleModifier.setName(modif.getName());
 
-        return modif;
+        return _articleModifier;
     }
 }

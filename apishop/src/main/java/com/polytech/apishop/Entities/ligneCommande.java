@@ -19,8 +19,7 @@ public class ligneCommande {
 
     }
 
-    public ligneCommande(Integer id_ligneCommande, int quantite, float prix, article article,commande commande){
-        this.id_ligneCommande = id_ligneCommande;
+    public ligneCommande( int quantite, float prix, article article,commande commande){
         this.quantite = quantite;
         this.prix = prix;
         this.article = article;

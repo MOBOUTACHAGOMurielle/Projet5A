@@ -24,14 +24,6 @@ public class article {
     @JoinColumn(name = "id_categories", referencedColumnName = "id_categories")
     private categories categories;
 
-    @ManyToOne
-    @JoinColumn(name = "id_commande", referencedColumnName = "id_commande")
-    private commande commande;
-
-    @ManyToOne
-    @JoinColumn(name = "id_panier", referencedColumnName = "id_panier")
-    private panier panier;
-
     @OneToMany(mappedBy = "article")
     private List<commentaire> commentaire;
 
@@ -39,7 +31,7 @@ public class article {
 
     }
 
-    public article(String name, String description, float prix, String taille, int quantite_stock, String image, categories categories, commande commande, panier panier, List<commentaire> commentaire) {
+    public article(String name, String description, float prix, String taille, int quantite_stock, String image, categories categories, List<commentaire> commentaire) {
         this.name = name;
         this.description = description;
         this.prix = prix;
@@ -47,8 +39,6 @@ public class article {
         this.quantite_stock = quantite_stock;
         this.image = image;
         this.categories = categories;
-        this.commande = commande;
-        this.panier = panier;
         this.commentaire = commentaire;
     }
 
@@ -114,22 +104,6 @@ public class article {
 
     public void setCategories(categories categories) {
         this.categories = categories;
-    }
-
-    public panier getPanier() {
-        return this.panier;
-    }
-
-    public void setPanier(panier panier) {
-        this.panier = panier;
-    }
-    
-    public commande getCommande() {
-        return this.commande;
-    }
-
-    public void setCommande(commande commande) {
-        this.commande = commande;
     }
 
     public List<commentaire> getCommentaire() {

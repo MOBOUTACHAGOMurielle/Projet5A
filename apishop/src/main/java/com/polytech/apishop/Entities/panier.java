@@ -1,26 +1,30 @@
 package com.polytech.apishop.Entities;
 
+import java.util.List;
+
 import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
+
 @Entity
+@AllArgsConstructor
 public class panier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_panier;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", referencedColumnName = "id")
-    private utilisateur utilisateur;
-
-    private float prix_total;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<lignePanier> lignePanier; 
+    
+    private float prix_total=0;
 
     public panier(){
 
     }
 
-    public panier(float prix_total, utilisateur utilisateur){
+    public panier(float prix_total, List<lignePanier> lignePanier){
         this.prix_total = prix_total;
-        this.utilisateur = utilisateur;
+        this.lignePanier = lignePanier;
     }
 
     public Integer getId_panier() {
@@ -38,12 +42,12 @@ public class panier {
     public void setPrix_total(float prix_total) {
         this.prix_total = prix_total;
     }
-    
-    public utilisateur getUtilisateur() {
-        return this.utilisateur;
+
+    public List<lignePanier> getLignePanier() {
+        return this.lignePanier;
     }
 
-    public void setUtilisateur(utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
+    public void setLignePanier(List<lignePanier> lignePanier) {
+        this.lignePanier = lignePanier;
     }
 }

@@ -22,7 +22,6 @@ public class utilisateur {
     private List<role> role;
     
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    @JoinColumn(name = "id_panier", referencedColumnName = "id_panier")
     private panier panier;
 
     @OneToMany(mappedBy = "utilisateur")

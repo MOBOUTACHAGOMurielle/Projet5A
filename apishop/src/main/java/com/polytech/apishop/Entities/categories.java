@@ -4,7 +4,10 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
+
 @Entity
+@AllArgsConstructor
 public class categories {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +20,16 @@ public class categories {
     @OneToMany(mappedBy = "categories")
     private List<article> article;
 
+
+    public categories(){
+
+    }
+
+    public categories(String nom, String description){
+        this.nom = nom;
+        this.description = description;
+    }
+    
     public Integer getId_categories() {
         return this.id_categories;
     }
