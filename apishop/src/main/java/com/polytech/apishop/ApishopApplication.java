@@ -1,7 +1,11 @@
 package com.polytech.apishop;
 
-import com.polytech.apishop.Entities.article;
+import com.polytech.apishop.Entities.panier;
+import com.polytech.apishop.Entities.utilisateur;
+import com.polytech.apishop.Repos.utilisateurRepository;
 import com.polytech.apishop.ServiceImpl.articleServiceImpl;
+import com.polytech.apishop.ServiceImpl.categorieServiceImpl;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,8 +23,11 @@ public class ApishopApplication {
 		SpringApplication.run(ApishopApplication.class, args);
 	}
 
+
+	private utilisateur user;
+
 	@Bean
-	CommandLineRunner runner(articleServiceImpl service){
+	CommandLineRunner runner(articleServiceImpl service,categorieServiceImpl categorie,utilisateurRepository utilisateurResp){
 		return args -> {
 
 			service.addArticle("Pants","zhsfbiudfbjdsfe",20,"L",5,"ddfdd");
@@ -30,6 +37,13 @@ public class ApishopApplication {
 			service.addArticle("vrvrg","rgrgr",200,"L",15,"dvddvv");
 			service.addArticle("rglrg","rgrcd",40,"L",55,"dvd");
 
+			categorie.addCategorie("Pantalon", "aazertyui");
+			categorie.addCategorie("Veste", "popo");
+			categorie.addCategorie("Bijoux", "mou");
+
+			
+			user = new utilisateur("jeanbon","taper","Philippe","Jean","Jeanphilippe@hotmail.fr",null,null,new panier(),null,null);
+			utilisateurResp.save(user);
 		};
 	}
 

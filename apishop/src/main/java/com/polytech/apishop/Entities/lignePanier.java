@@ -2,30 +2,29 @@ package com.polytech.apishop.Entities;
 
 import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
+
 @Entity
+@AllArgsConstructor
 public class lignePanier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_lignePanier;
     private int quantite;
     private float prix;
+
     @OneToOne
     private article article;
-
-    @ManyToOne
-    @JoinColumn(name = "id_panier", referencedColumnName = "id_panier")
-    private panier panier;
+    
 
     public lignePanier(){
 
     }
 
-    public lignePanier(Integer id_lignePanier, int quantite, float prix, article article, panier panier){
-        this.id_lignePanier = id_lignePanier;
+    public lignePanier(int quantite, float prix, article article){
         this.quantite = quantite;
-        this.prix = prix;
         this.article = article;
-        this.panier = panier;
+        this.prix = prix;
     }
 
     public Integer getId_lignePanier() {
@@ -58,13 +57,5 @@ public class lignePanier {
 
     public void setArticle(article article) {
         this.article = article;
-    }
-
-    public panier getPanier() {
-        return this.panier;
-    }
-
-    public void setPanier(panier panier) {
-        this.panier = panier;
     }
 }
