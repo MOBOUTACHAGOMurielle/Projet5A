@@ -38,6 +38,10 @@ import { FormulaireArticleComponent } from './formulaire-article/formulaire-arti
 import { MatRadioModule } from '@angular/material/radio';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { PanierComponent } from './panier/panier.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatBadgeModule } from '@angular/material/badge';
+import { FiterPipe } from './filtre/fiter.pipe';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
     StartRatingComponent,
     AllArticlesComponent,
     FormulaireArticleComponent,
+    PanierComponent,
+    FiterPipe,
 
   ],
   imports: [
@@ -82,18 +88,21 @@ import { InscriptionComponent } from './inscription/inscription.component';
     MatButtonToggleModule,
     MatSliderModule,
     MatRadioModule,
+    MatSelectModule,
+    MatBadgeModule,
     RouterModule.forRoot([
       { path: 'jean', component: JeanComponent },
       { path: 'manteau', component: ManteauComponent },
       { path: 'tee-shirt', component: TeeShirtComponent },
       { path: 'accessoires', component: AccessoiresComponent },
-      { path: 'dasboard', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
       { path: '', redirectTo: '/dasboard', pathMatch: 'full'},
       { path: 'jean/:id', component: JeanDetailComponent },
       { path: 'manteau/:id', component: ManteauDetailComponent },
-      { path: 'tee-shirt/:id', component: TeeShirtComponent},
-      { path: 'accessoires/:id', component: AccessoiresComponent},
-      { path: 'formulaire-article', component: FormulaireArticleComponent}
+      { path: 'tee-shirt/:id', component: TeeShirtDetailComponent},
+      { path: 'accessoires/:id', component: AccessoiresDetailComponent},
+      { path: 'formulaire-article', component: FormulaireArticleComponent},
+      { path: 'panier', component: PanierComponent}
     ])
   ],
   providers: [],

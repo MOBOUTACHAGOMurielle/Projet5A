@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { categorie } from '../categories';
+import { panierService } from '../panier/panier.servcie';
 import { dashboardService } from './dashboard.service';
 
 @Component({
@@ -9,13 +10,25 @@ import { dashboardService } from './dashboard.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private dashboardService: dashboardService) { }
+  public errMsg: string | undefined;
+  searchKey:string= " ";
 
-  listeCategories: categorie[] = [];
+  constructor(private dashboardService: dashboardService,
+    private panierService: panierService
+    ) { }
+
+  listeCategorie: categorie[] = [];
 
   ngOnInit(): void {
-    this.listeCategories = this.dashboardService.getDashboard();
-  }
+    this.dashboardService.getCategories().subscribe({
+      next: listeCategorie => {
+        this.listeCategorie = listeCategorie;
+      },
+      error: err => this.errMsg = err
+    });
 
-
+    this.panierService.search.subscribe((val:any)=>{
+      this.searchKey = val;
+    })
+  }  
 }

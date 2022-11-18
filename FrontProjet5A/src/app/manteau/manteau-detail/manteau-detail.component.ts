@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { article } from 'src/app/article';
 import { manteauService } from '../manteau.service';
+import { panierService } from 'src/app/panier/panier.servcie';
 
 @Component({
   selector: 'app-manteau-detail',
@@ -12,10 +13,10 @@ export class ManteauDetailComponent implements OnInit {
 
   public manteau: article = <article>{};
 
-  
   constructor(
     private route: ActivatedRoute,
-    private listeManteau: manteauService
+    private listeManteau: manteauService,
+    private panierService: panierService
   ) { }
 
   ngOnInit(): void {
@@ -27,4 +28,8 @@ export class ManteauDetailComponent implements OnInit {
     })
   }
 
+  addToCart(item:any){
+    this.panierService.addtoCart(item);
+  }
+  
 }

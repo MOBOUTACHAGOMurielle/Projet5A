@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { article } from 'src/app/article';
+import { panierService } from 'src/app/panier/panier.servcie';
 import { teeshirtService } from '../tee-shirt.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class TeeShirtDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private listeTeeShirt: teeshirtService
+    private listeTeeShirt: teeshirtService,
+    private panierService: panierService
   ) { }
 
   ngOnInit(): void {
@@ -22,8 +24,10 @@ export class TeeShirtDetailComponent implements OnInit {
     
     this.listeTeeShirt.getTeeShirt().subscribe((liste: article[]) => {
       this.teeShirt = liste.find(shirt => shirt.id_article == id)!;
-      console.log('hotel', this.teeShirt);
     })
-  }
+  } 
 
+  addToCart(item:any){
+    this.panierService.addtoCart(item);
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { article } from 'src/app/article';
+import { panierService } from 'src/app/panier/panier.servcie';
 import { accessoiresService } from '../accessoires.service';
 
 
@@ -15,7 +16,8 @@ export class AccessoiresDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private listeAccessoire: accessoiresService
+    private listeAccessoire: accessoiresService,
+    private panierService: panierService
   ) { }
 
   ngOnInit(): void {
@@ -27,4 +29,7 @@ export class AccessoiresDetailComponent implements OnInit {
     })
   }
 
+  addToCart(item:any){
+    this.panierService.addtoCart(item);
+  }
 }

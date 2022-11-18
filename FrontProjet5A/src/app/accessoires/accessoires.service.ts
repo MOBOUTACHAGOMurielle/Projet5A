@@ -7,6 +7,7 @@ import { article } from "../article";
 @Injectable({
     providedIn: 'root'
 })
+
 export class accessoiresService {
 
     private readonly ACCESSOIRES_API_URL = '/assets/api/accessoires.json';
@@ -15,7 +16,7 @@ export class accessoiresService {
 
     public getAccessoires(): Observable<article[]> {
         return this.http.get<article[]>(this.ACCESSOIRES_API_URL).pipe(
-            tap(accessoire => console.log('jeans: ', accessoire)),
+            tap(accessoire => console.log('accessoires: ', accessoire)),
             catchError(this.handleError)
         );
     }

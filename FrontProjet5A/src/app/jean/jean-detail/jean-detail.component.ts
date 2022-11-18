@@ -22,6 +22,10 @@ export class JeanDetailComponent implements OnInit {
     
     this.listeJean.getJean().subscribe((liste: article[]) => {
       this.jean = liste.find(jean => jean.id_article == id)!;
+
+      // this.listeJean.array.forEach((a:any) => {
+        
+      // });
       console.log('note', this.jean.note);
     })
   }

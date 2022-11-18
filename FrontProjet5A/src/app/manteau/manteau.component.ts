@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { article } from '../article';
+import { panierService } from '../panier/panier.servcie';
 import { manteauService } from './manteau.service';
 
 @Component({
@@ -10,8 +11,11 @@ import { manteauService } from './manteau.service';
 export class ManteauComponent implements OnInit {
 
   public errMsg: string | undefined;
+  searchKey:string= " ";
 
-  constructor(private manteauService: manteauService) { }
+  constructor(private manteauService: manteauService,
+    private panierService: panierService
+    ) { }
 
   listeManteau: article[] = [];
 
@@ -23,6 +27,9 @@ export class ManteauComponent implements OnInit {
 
       error: err => this.errMsg = err
     });
-  }
 
+    this.panierService.search.subscribe((val:any)=>{
+      this.searchKey = val;
+    })
+  }  
 }

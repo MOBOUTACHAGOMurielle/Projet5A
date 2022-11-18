@@ -1,14 +1,14 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { catchError, Observable, tap, throwError } from "rxjs";
+import { Observable, tap, catchError, throwError } from "rxjs";
 import { article } from "../article";
+
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class allArticlesService {
-
+export class enteteService {
     private readonly ALL_ARTICLE_API_URL = '/assets/api/allArticles.json';
 
     constructor(private http: HttpClient){}
@@ -35,4 +35,3 @@ export class allArticlesService {
         return throwError(() => new Error('Something bad happened; please try again later.'));
       }
 }
-

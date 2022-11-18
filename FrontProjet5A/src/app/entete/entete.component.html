@@ -6,7 +6,7 @@
     <div id="color" class ="rechercher">
       <mat-form-field appearance="outline">
         <mat-label>Je recherche...</mat-label>
-        <input  type="text" matInput placeholder={{articleFilter}} [ngModel]="articleFilter">
+        <input  type="text" matInput placeholder="rechercher un article" [(ngModel)] = "searchTerm" (keyup)="search($event)">
         <mat-icon matSuffix id="color">search</mat-icon>
       </mat-form-field>   
     </div>
@@ -18,7 +18,7 @@
     <span class="example-spacer"></span>
     <div id="color" class= "panier">
       Mon panier 
-      <mat-icon >add_shopping_cart</mat-icon>
+      <mat-icon [routerLink]="['/panier']" matBadge= {{totalItem}} matBadgeColor="warn">add_shopping_cart</mat-icon>
     </div>
   </section>
   

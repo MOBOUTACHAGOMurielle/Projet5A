@@ -1,0 +1,97 @@
+<div class="parent" *ngIf="products.length !=0">
+    <div class="item1" *ngIf="products && products.length>0">
+       <div class="intro">
+        <h2>Resumé des articles</h2>
+       </div> 
+       <div class="item1Child">
+        <div>Articles</div>
+        <span class="example-spacer"></span>
+        <div>Taille</div>
+        <span class="example-spacer"></span>
+        <div>Prix</div>
+        <span class="example-spacer"></span>
+        <div>Quantite</div>
+       </div>
+       <!-- <div class="item2Child" *ngFor="let acategorie of listePanier">
+            <div>
+                <img src="{{acategorie.image}}" height="140px" width="120px">
+                <div>
+                    Supprimer<mat-icon color="#A77E7E">delete</mat-icon>
+                </div>  
+            </div>
+            <div>
+                <div class="example-button-row">
+                    <button mat-raised-button color="primary">
+                        <mat-label>{{acategorie.taille}}</mat-label>
+                        <mat-select>
+                            <mat-option>
+                                M
+                            </mat-option>
+                            <mat-option>
+                                S
+                            </mat-option>
+                            <mat-option>
+                                L
+                            </mat-option>
+                        </mat-select>
+                    </button>
+                </div>
+            </div>
+            <div>{{acategorie.prix}}€</div>
+            <div>{{acategorie.quantite}}</div>
+       </div> -->
+       <mat-card *ngFor="let acategorie of products; let i = index">
+        <div class="content">
+            <img src="{{acategorie.image}}" height="140px" width="120px">
+            <div id="position">
+                <button mat-raised-button>
+                    <mat-label>{{acategorie.taille}}</mat-label>
+                    <mat-select>
+                        <mat-option>
+                            M
+                        </mat-option>
+                        <mat-option>
+                            S
+                        </mat-option>
+                        <mat-option>
+                            L
+                        </mat-option>
+                    </mat-select>
+                </button>
+            </div>
+            <div id="position">{{acategorie.prix}}€</div>
+            <div id="position">{{i+1}}</div>
+        </div>
+        <mat-card-actions align="end">
+          <mat-icon>share</mat-icon>
+          <span class="example-spacer-1"></span>
+          <mat-icon (click)="removeItem(acategorie)">delete</mat-icon>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="item2">
+        <h2>Resumé de votre commande</h2>
+        <div class="total">
+            <p>Total</p>
+            <h1>{{grandTotal}}€</h1>
+        </div>
+        <div class="example-button-row">
+            <button mat-raised-button class="commande">Passez votre commande</button>
+        </div>
+        <p id="promo" color="black">Appliquez un code de coupons pour avoir des réductions</p>
+    </div>
+</div>
+
+<ng-container *ngIf="products.length ==0">
+    <div class="container">
+        <div class="card">
+            <h1 class="card-title">Mon panier</h1>
+        </div>
+        <div class="center">
+            <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+            <h2>Votre panier est vide!</h2>
+            <h3>Ajouter des articles maintenant</h3>
+            <button routerLink="/dasboard" class="btn btn-primary">Continuer les achats</button>
+        </div>
+    </div>
+</ng-container>
