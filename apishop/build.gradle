@@ -4,9 +4,9 @@ plugins {
 	id 'java'
 }
 
-bootJar {
-	enabled = false
-}
+//bootJar {
+//	enabled = false
+//}
 
 jar {
 	enabled = true
