@@ -4,14 +4,6 @@ plugins {
 	id 'java'
 }
 
-//bootJar {
-//	enabled = false
-//}
-
-jar {
-	enabled = true
-}
-
 group = 'com.polytech'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
