@@ -4,7 +4,7 @@ WORKDIR $APP_HOME
 COPY apishop/build.gradle apishop/settings.gradle apishop/gradlew $APP_HOME
 COPY apishop/gradle $APP_HOME/gradle
 COPY . .
-RUN chmod +x ./gradlew build -x test
+RUN ./gradlew build -x test
 #juste Pour tester
 FROM openjdk:17
 ENV ARTIFACT_NAME=covid-api-0.0.1-SNAPSHOT.jar
