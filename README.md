@@ -1,4 +1,7 @@
-docker build -t name. pour builder un container en renomant l image docker
+Mobou Tachago Murielle 32027026
+
+Lancer docker:
+docker build . pour builder un container en renomant l image docker
 
 
 FROM openjdk:11 AS TEMP_BUILD_IMAGE
