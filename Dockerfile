@@ -6,7 +6,7 @@ COPY apishop/gradle $APP_HOME/gradle
 COPY . .
 RUN ./gradlew build --stacktrace -x test
 #juste Pour tester
-FROM openjdk:17
+FROM openjdk:11
 ENV ARTIFACT_NAME=hello-world-0.0.1-SNAPSHOT.jar
 ENV APP_HOME=/usr/app
 WORKDIR $APP_HOME
