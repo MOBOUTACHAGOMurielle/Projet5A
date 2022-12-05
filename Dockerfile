@@ -5,7 +5,7 @@
 #COPY apishop/gradle $APP_HOME/gradle
 #COPY . .
 #RUN ./gradlew build --stacktrace -x test
-#juste Pour testerrfere
+#juste Pour testerfere
 FROM openjdk:17
 ENV ARTIFACT_NAME=apishop-0.0.1-SNAPSHOT.jar
 ENV APP_HOME=/usr/app
