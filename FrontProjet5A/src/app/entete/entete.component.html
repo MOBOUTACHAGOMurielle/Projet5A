@@ -1,0 +1,25 @@
+<section class = "un">
+    <div>
+      <!-- <img src="assets/Maven.PNG" width="150px" height="60px" class = "image"> -->
+      <p id="logo">Maven</p>
+    </div>
+    <span class="example-spacer"></span>
+    <div class ="rechercher">
+      <mat-form-field appearance="outline">
+        <mat-label class ="textColor">Je recherche...</mat-label>
+        <input type="text" matInput placeholder="rechercher un article" [(ngModel)] = "searchTerm" (keyup)="search($event)">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>   
+    </div>
+    <span class="spacer"></span>
+    <div class ="connection" >
+      <!-- <button type="button" class="btn btn-outline-danger" routerLink="/connexion">Se connecter</button> -->
+      <mat-icon routerLink="/connexion">person</mat-icon>
+    </div>
+    <span class="spacer"></span>
+    <div class= "panier">
+      <mat-icon [routerLink]="['/panier']" matBadge= {{totalItem}} matBadgeColor="warn">add_shopping_cart</mat-icon>
+    </div>
+  </section>
+  
+ 
