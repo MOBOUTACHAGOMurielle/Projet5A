@@ -34,9 +34,6 @@ public class utilisateur {
 //    @OneToMany(mappedBy = "utilisateur")
 //    private List<role> role;
 
-    @ManyToMany(fetch = FetchType.LAZY,  cascade = {CascadeType.ALL})
-    private Collection<role> authorities = new ArrayList<>();
-
 
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "id_panier", referencedColumnName = "id_panier")

@@ -1,21 +1,21 @@
 package com.polytech.apishop;
 
-<<<<<<< HEAD
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-=======
+
 import com.polytech.apishop.Entities.article;
 import com.polytech.apishop.ServiceImpl.articleServiceImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
->>>>>>> Test2
 
 @SpringBootApplication
 public class ApishopApplication {
@@ -24,8 +24,7 @@ public class ApishopApplication {
 		SpringApplication.run(ApishopApplication.class, args);
 	}
 
-<<<<<<< HEAD
-=======
+
 	@Bean
 	CommandLineRunner runner(articleServiceImpl service){
 		return args -> {
@@ -40,6 +39,10 @@ public class ApishopApplication {
 		};
 	}
 
+	@Bean
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
 	@Bean
 	public CorsFilter corsFilter() {
@@ -58,10 +61,4 @@ public class ApishopApplication {
 		return new CorsFilter(urlBasedCorsConfigurationSource);
 	}
 
-
-
-
-
-
->>>>>>> Test2
 }
