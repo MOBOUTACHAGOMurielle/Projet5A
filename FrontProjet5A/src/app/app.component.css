@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-body { 
-    background-color:#E8CBCB;
-    ;   
+.notifier {
+    height: 0;
+    overflow: hidden;
+    z-index: 1000;
 }
-=======
-
->>>>>>> Test2

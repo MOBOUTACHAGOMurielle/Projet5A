@@ -3,12 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-<<<<<<< HEAD
-  production: false
-=======
   production: false,
   host: 'http://localhost:8080'
->>>>>>> Test2
 };
 
 /*

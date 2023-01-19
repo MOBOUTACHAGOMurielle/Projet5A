@@ -1,28 +1,25 @@
 package com.polytech.apishop.Entities;
-<<<<<<< HEAD
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
-=======
-import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.*;
->>>>>>> Test2
 
 @Entity
 public class utilisateur {
+//    @Id
+//    public int Id;
+//    private String login;
+//    private String password;
+//    public String nom;
+//    public String prenom;
+//    public String mail;
+//    public Date date_creation;
     @Id
-<<<<<<< HEAD
-    public int Id;
-    private String login;
-    private String password;
-    public String nom;
-    public String prenom;
-    public String mail;
-    public Date date_creation;
-=======
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable=false)
@@ -34,9 +31,13 @@ public class utilisateur {
     private String email;
     private Date date_creation_compte;
 
-    @OneToMany(mappedBy = "utilisateur")
-    private List<role> role;
-    
+//    @OneToMany(mappedBy = "utilisateur")
+//    private List<role> role;
+
+    @ManyToMany(fetch = FetchType.LAZY,  cascade = {CascadeType.ALL})
+    private Collection<role> authorities = new ArrayList<>();
+
+
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "id_panier", referencedColumnName = "id_panier")
     private panier panier;
@@ -63,14 +64,7 @@ public class utilisateur {
         this.commande = commande;
         this.commentaire = commentaire;
     }
->>>>>>> Test2
 
-
-
-
-
-<<<<<<< HEAD
-=======
 
     public Integer getId() {
         return this.id;
@@ -161,5 +155,4 @@ public class utilisateur {
         this.commentaire = commentaire;
     }
 
->>>>>>> Test2
 }

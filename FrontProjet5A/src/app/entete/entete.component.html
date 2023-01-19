@@ -10,12 +10,18 @@
         <mat-icon matSuffix id="color">search</mat-icon>
       </mat-form-field>   
     </div>
-    <span class="example-spacer"></span>
-    <div id="color" class ="connection" >
+    <!-- <span class="example-spacer"></span> -->
+    <div *ngIf="!isUserAuthenticated()" id="color" class ="connection" >
       <button type="button" class="btn btn-outline-danger" routerLink="/connexion">Se connecter</button>
+      <button type="button" class="btn btn-outline-danger" routerLink="/inscription">S'inscrire</button>
       <mat-icon >person</mat-icon>
     </div>
-    <span class="example-spacer"></span>
+    <div *ngIf="isUserAuthenticated()" id="color" class ="connection" >
+      <p  *ngIf="username">Hi {{username}} !</p>
+      <button type="button" class="btn btn-outline-danger" (click)="logOut()">Deconnection</button>
+      <mat-icon >person</mat-icon>
+    </div>
+    <!-- <span class="example-spacer"></span> -->
     <div id="color" class= "panier">
       Mon panier 
       <mat-icon >add_shopping_cart</mat-icon>

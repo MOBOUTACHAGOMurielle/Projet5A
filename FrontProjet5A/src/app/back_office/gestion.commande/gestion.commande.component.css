@@ -1,0 +1,86 @@
+.item1 {
+    background-color:#FAFAFA;
+    padding: 30px;
+    font-size: 0.77rem;
+    line-height: 1.7;
+  }
+
+  .mat-form-field{
+    color: rgb(64, 79, 79);
+
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: rgb(64, 79, 79);
+}
+
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+     color: rgb(64, 79, 79);
+  }
+
+  .form-group{
+    width: 5cm;
+  }
+
+
+  .rechercher {
+    color: rgb(64, 79, 79);
+    border-color: rgb(64, 79, 79);
+}
+
+
+
+  #color {
+    color: rgb(64, 79, 79);
+}
+
+
+.card_command {
+    width: 90%;
+    
+    margin: auto;
+    margin-bottom: 10px ;
+}
+
+.parent {
+    margin: auto;
+    color: black;
+    width: 80%;
+    padding: 100px;
+    display: grid;
+    gap: 30px;
+  }
+
+  .command_list{
+    width: 100%;
+
+    margin-top: 20px;
+  }
+
+  .subtitle{
+    margin-top: 1cm;
+  }
+
+  .mat-divider {
+    margin-top: -10px;
+    border-top-color: rgba(0, 0, 0, 0.12);
+}
+
+.mat-paginator{
+    margin-left: 45%;
+    width: 50%;
+
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+
+

@@ -5,15 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-<<<<<<< HEAD
-import {MatMenuModule} from '@angular/material/menu';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
-@NgModule({
-  declarations: [
-    AppComponent,
-=======
 import { MatMenuModule} from '@angular/material/menu';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -47,10 +38,17 @@ import { FormulaireArticleComponent } from './formulaire-article/formulaire-arti
 import { MatRadioModule } from '@angular/material/radio';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
-
+import { ToastComponent } from './notification/components/toast/toast.component';
+import { ToasterComponent } from './notification/components/toaster/toaster.component';
+import { CommandeComponent } from './commandes/commande/commande.component';
+import { GestionCommandeComponent } from './back_office/gestion.commande/gestion.commande.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     ConnexionComponent,
+    ToastComponent, 
+    ToasterComponent,
     InscriptionComponent,
     AppComponent,
     NavComponent,
@@ -67,10 +65,13 @@ import { InscriptionComponent } from './inscription/inscription.component';
     StartRatingComponent,
     AllArticlesComponent,
     FormulaireArticleComponent,
+    CommandeComponent,
+    GestionCommandeComponent,
+    FooterComponent,
 
->>>>>>> Test2
   ],
   imports: [
+    MatPaginatorModule,
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
@@ -78,9 +79,6 @@ import { InscriptionComponent } from './inscription/inscription.component';
     MatMenuModule,
     FormsModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
-    MatFormFieldModule
-=======
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -106,9 +104,12 @@ import { InscriptionComponent } from './inscription/inscription.component';
       { path: 'manteau/:id', component: ManteauDetailComponent },
       { path: 'tee-shirt/:id', component: TeeShirtComponent},
       { path: 'accessoires/:id', component: AccessoiresComponent},
-      { path: 'formulaire-article', component: FormulaireArticleComponent}
+      { path: 'formulaire-article', component: FormulaireArticleComponent},
+      {path : "connexion", component : ConnexionComponent},
+      {path : "inscription", component : InscriptionComponent} ,
+      {path : "commande/:id", component : CommandeComponent} ,
+      {path : "gestion/commande", component : GestionCommandeComponent} 
     ])
->>>>>>> Test2
   ],
   providers: [],
   bootstrap: [AppComponent]
