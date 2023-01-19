@@ -1,0 +1,20 @@
+.footer{
+    display:flex;
+    flex-direction: row;
+    background: black;
+    align-items: right;
+    justify-content: between;
+    width: 100%;
+    height: 10%;
+    color: aliceblue;
+}
+
+#copyright{
+    border-width: 5px;
+    border-color: wheat;
+    border-style: dashed;
+    margin: auto;
+    padding-right: 100px;
+}
+
+

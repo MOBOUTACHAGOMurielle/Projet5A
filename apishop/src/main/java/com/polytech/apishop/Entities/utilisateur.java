@@ -1,11 +1,24 @@
 package com.polytech.apishop.Entities;
-import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
 public class utilisateur {
+//    @Id
+//    public int Id;
+//    private String login;
+//    private String password;
+//    public String nom;
+//    public String prenom;
+//    public String mail;
+//    public Date date_creation;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -18,9 +31,10 @@ public class utilisateur {
     private String email;
     private Date date_creation_compte;
 
-    @OneToMany(mappedBy = "utilisateur")
-    private List<role> role;
-    
+//    @OneToMany(mappedBy = "utilisateur")
+//    private List<role> role;
+
+
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private panier panier;
 
@@ -46,10 +60,6 @@ public class utilisateur {
         this.commande = commande;
         this.commentaire = commentaire;
     }
-
-
-
-
 
 
     public Integer getId() {

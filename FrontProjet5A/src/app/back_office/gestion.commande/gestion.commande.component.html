@@ -1,0 +1,90 @@
+<div class="parent">
+    <div class="item1">
+      <div class="photo-example" height="600px" width="500px">
+        <h1 style="font-weight: bold;">Order List</h1>
+        <mat-divider></mat-divider>
+
+
+        <div class="command_list">
+
+            <mat-card class="card_command">
+                <mat-card-title>Command #648891514</mat-card-title>
+                <mat-card-subtitle>Wilfried SANON</mat-card-subtitle>
+                <mat-card-subtitle>Date : </mat-card-subtitle>
+                <mat-card-subtitle>Prix :</mat-card-subtitle>
+                <mat-card-actions align="end">
+                  <button mat-button><mat-icon>check</mat-icon></button>
+                  <button mat-button><mat-icon>remove_red_eye</mat-icon></button>
+                  <button mat-button><mat-icon>cancel</mat-icon></button>
+                </mat-card-actions>
+            </mat-card>
+
+            <mat-card class="card_command">
+                <mat-card-title>Command #648891514</mat-card-title>
+                <mat-card-subtitle>Wilfried SANON</mat-card-subtitle>
+                <mat-card-subtitle>Date : </mat-card-subtitle>
+                <mat-card-subtitle>Prix :</mat-card-subtitle>
+                <mat-card-actions align="end">
+                  <button mat-button><mat-icon>check</mat-icon></button>
+                  <button mat-button><mat-icon>remove_red_eye</mat-icon></button>
+                  <button mat-button><mat-icon>cancel</mat-icon></button>
+                </mat-card-actions>
+            </mat-card>
+
+            <mat-card class="card_command">
+                <mat-card-title>Command #648891514</mat-card-title>
+                <mat-card-subtitle>Wilfried SANON</mat-card-subtitle>
+                <mat-card-subtitle>Date : </mat-card-subtitle>
+                <mat-card-subtitle>Prix :</mat-card-subtitle>
+                <mat-card-actions align="end">
+                  <button mat-button><mat-icon>check</mat-icon></button>
+                  <button mat-button><mat-icon>remove_red_eye</mat-icon></button>
+                  <button mat-button><mat-icon>cancel</mat-icon></button>
+                </mat-card-actions>
+            </mat-card>
+
+            <mat-card class="card_command">
+                <mat-card-title>Command #648891514</mat-card-title>
+                <mat-card-subtitle>Wilfried SANON</mat-card-subtitle>
+                <mat-card-subtitle>Date : </mat-card-subtitle>
+                <mat-card-subtitle>Prix :</mat-card-subtitle>
+                <mat-card-actions align="end">
+                  <button mat-button><mat-icon>check</mat-icon></button>
+                  <button mat-button><mat-icon>remove_red_eye</mat-icon></button>
+                  <button mat-button><mat-icon>cancel</mat-icon></button>
+                </mat-card-actions>
+            </mat-card>
+
+            <mat-card class="card_command">
+                <mat-card-title>Command #648891514</mat-card-title>
+                <mat-card-subtitle>Wilfried SANON</mat-card-subtitle>
+                <mat-card-subtitle>Date : </mat-card-subtitle>
+                <mat-card-subtitle>Prix :</mat-card-subtitle>
+                <mat-card-actions align="end">
+                  <button mat-button><mat-icon>check</mat-icon></button>
+                  <button mat-button><mat-icon>remove_red_eye</mat-icon></button>
+                  <button mat-button><mat-icon>cancel</mat-icon></button>
+                </mat-card-actions>
+            </mat-card>
+
+        </div>
+
+        <mat-paginator [length]="length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="pageEvent = $event"
+        aria-label="Select page">
+        </mat-paginator>
+
+        <div *ngIf="pageEvent">
+        <h5>Page Change Event Properties</h5>
+        <div>List length: {{pageEvent.length}}</div>
+        <div>Page size: {{pageEvent.pageSize}}</div>
+        <div>Page index: {{pageEvent.pageIndex}}</div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>

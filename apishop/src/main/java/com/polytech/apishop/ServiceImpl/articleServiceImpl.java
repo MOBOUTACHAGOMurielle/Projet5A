@@ -3,12 +3,12 @@ package com.polytech.apishop.ServiceImpl;
 import java.util.List;
 import java.util.Optional;
 
+import com.polytech.apishop.Services.articleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.polytech.apishop.Entities.article;
 import com.polytech.apishop.Repos.articleRepository;
-import com.polytech.apishop.Services.articleService;
 
 @Service
 public class articleServiceImpl implements articleService {
