@@ -1,10 +1,18 @@
-#color {
+/* #color {
     color: azure;
+} */
+@font-face {
+    font-family: 'Australia Custom';
+    src: url('australia_custom/Australia Custom.otf');
+    src: url('australia_custom/Australia Custom.otf?#iefix') format('embedded-opentype'),
+         url('australia_custom/Australia Custom.woff2') format('woff2'),
+         url('australia_custom/Australia Custom.woff') format('woff'),
+         url('australia_custom/Australia Custom Italic.ttf') format('truetype');
 }
 
 .un {
     display:flex;
-    background: black;
+    background: #F6F1F1;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -15,9 +23,9 @@
     margin-top: 1.3em;
 }
 
-.un>*{
+/* .un>*{
     flex: 1;
-}
+} */
 
 #bienvenue {
     font-style: italic;
@@ -29,5 +37,26 @@
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: white;
+    color: #A77E7E;
+}
+
+#logo {
+    font-family: 'Australia Custom', Courier, monospace;
+    font-size: 3.5em;
+}
+
+.textColor,.matInput {
+    color: black;
+}
+
+.example-spacer {
+  flex: 0.7;
+}
+
+.spacer {
+    flex: 0.1;
+}
+
+.mat-form-field {
+    width:400px;
 }

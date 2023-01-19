@@ -1,4 +1,4 @@
-html,
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -7,9 +7,9 @@ body {
 body {
   font-family: sans-serif;
   font-size: 1rem;
-}
+} */
 
-.click {
+/* .click {
   padding: 20px;
   text-align: center;
 }
@@ -33,9 +33,9 @@ body {
     grid-row: span 25;
     grid-column: span 1;
     display: grid;
-}
+} */
 
-.mesure {
+/* .mesure {
   grid-template-columns: 1fr 8fr;
   display: grid;
 }
@@ -48,14 +48,80 @@ body {
 .add {
   grid-template-columns: 1fr 6fr;
   display: grid;
-}
+} */
 
-.item1:nth-child(1) {
+/* .item1:nth-child(1) {
   font-size: 1.1rem;
   grid-row: span 25;
   grid-column: span 2;
   display: grid;
   align-content: center;
+} */
+
+.responsive-example-photo{
+  max-width: 1100px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: 2.5fr 1.5fr; /*repeat(auto-fit, minmax(180px, 1fr)); */
+  gap: 30px;
+}
+
+.responsive-item-detail, .responsive-item-detail-photo{
+  background-color:white;
+  padding: 30px;
+  color: black;
+  font-size: 1.2rem;
+  line-height: 1.7em;
+  overflow: auto;
+  height: 700px;
+}
+
+.special{
+  background-color: ivory;
+  color:burlywood;
+  width: 150px;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 5%;
+}
+
+.prix {
+ font-size: 2em;
+ font-family: cursive;
+ color: crimson;
+ display: grid;
+ grid-template-columns: 0.1fr 0.1fr 0.1fr;
+}
+
+.initial {
+  color: black;
+  font-size: 0.7em;
+  margin:-5px 5px;
+  text-decoration : line-through;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.reduc {
+  color: white;
+  font-size: 0.7em;
+  text-align: center;
+  background-color: black;
+  font-family: 'Courier New', Courier, monospace;
+  height: 30px;
+
+}
+
+.responsive-item-detail-photo {
+  background-image: url(/assets/manteauBouton.webp);
+  background-size : cover;
+}
+
+.tiret {
+  display: grid;
+  grid-template-columns: repeat();
+  color: black;
+  margin: 20px auto 20px;
+  gap: 1px;
 }
 
 #sidebar, .mesure, .add{

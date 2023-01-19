@@ -42,6 +42,8 @@ import { PanierComponent } from './panier/panier.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatBadgeModule } from '@angular/material/badge';
 import { FiterPipe } from './filtre/fiter.pipe';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { DarioComponent } from './dario/dario.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,7 @@ import { FiterPipe } from './filtre/fiter.pipe';
     FormulaireArticleComponent,
     PanierComponent,
     FiterPipe,
+    DarioComponent,
 
   ],
   imports: [
@@ -90,6 +93,7 @@ import { FiterPipe } from './filtre/fiter.pipe';
     MatRadioModule,
     MatSelectModule,
     MatBadgeModule,
+    MatPaginatorModule,
     RouterModule.forRoot([
       { path: 'jean', component: JeanComponent },
       { path: 'manteau', component: ManteauComponent },
@@ -102,7 +106,8 @@ import { FiterPipe } from './filtre/fiter.pipe';
       { path: 'tee-shirt/:id', component: TeeShirtDetailComponent},
       { path: 'accessoires/:id', component: AccessoiresDetailComponent},
       { path: 'formulaire-article', component: FormulaireArticleComponent},
-      { path: 'panier', component: PanierComponent}
+      { path: 'panier', component: PanierComponent},
+      { path: 'dario', component: DarioComponent}
     ])
   ],
   providers: [],

@@ -26,4 +26,5 @@ export class NavComponent {
     {id:28, name:"Accessoires", image:"assets/montre.jfif", description: "Venez découvir nos accessoires"}
   ];
 
+  isPresent:boolean = false;
 }

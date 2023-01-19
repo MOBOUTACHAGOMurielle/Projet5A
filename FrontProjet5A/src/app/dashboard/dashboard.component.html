@@ -1,5 +1,22 @@
 <section class = "trois">
-    <div *ngIf="listeCategorie && listeCategorie.length>0" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="5%" fxLayoutAlign="center">
+    <div id="noel">
+        <div class="images">
+            <img src="assets/bebe.jpg" width="1200px" height="600px">
+            <img src="assets/livraison.webp" width="1400px" height="600px">
+        </div>
+        <div style="position:absolute;top:200px; width:1100px; height:400px; z-index:2;font-size:200%">
+            <p class="texte">Oh!oh!oh!!!</p>
+            <p class="texte">Le père Noël arrive!</p>
+            <p class="texte">Venez vite découvrir nos offres de noël</p>
+        </div> 
+     </div>
+
+     <div class="recommandés">
+        <div class="trait1"></div>
+        <div>Achetez par categorie</div>
+        <div class="trait2"></div>
+    </div>
+    <div class="categories" *ngIf="listeCategorie && listeCategorie.length>0" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="5%" fxLayoutAlign="center">
         <mat-card class="example-card" *ngFor="let acategorie of listeCategorie | fiter:searchKey:'description'" >
             <img mat-card-image src="{{acategorie.image}}" alt="" height="220px" width="300px">
             <mat-card-content>
@@ -13,5 +30,43 @@
                 </div>
             </mat-card-content>
         </mat-card>
+    </div> 
+
+    <div class="recommandés">
+        <div class="trait1"></div>
+        <div>Promotions</div>
+        <div class="trait2"></div>
     </div>
+    <div id="promo">
+        <mat-card class="uno">
+            <mat-card-content>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="deux">
+            <mat-card-content>
+                <div>
+                    <p class="soldes1">Tout à</p>
+                    <p class="soldes2">-50%</p>
+                </div> 
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="nouveaute">
+            <mat-card-content>
+                <div>
+                    <p id="nouveau">Nouveautés</p>
+                </div> 
+            </mat-card-content>
+        </mat-card>
+     </div>    
 </section>
+<mat-paginator [length]="20" [pageSizeOptions]="[4, 8, 12]" aria-label="Select page">
+</mat-paginator>
+<div class="art-banner" id="art-banner">
+    <div class="banner-text">Suivez nous sur
+        <img src="assets/insta.png" width="60px" height="60px">
+        <img src="assets/facebook.png" width="60px" height="60px">
+        <img src="assets/twitter.png" width="60px" height="60px">
+        <img src="assets/youtube.png" width="60px" height="60px">
+        <img src="assets/pinterest.png" width="60px" height="60px">
+    </div>
+  </div>
