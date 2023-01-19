@@ -1,6 +1,6 @@
 [
     {
-        "id": 19, 
+        "id_article": 19, 
         "name": "polo à motif", 
         "image": "assets/poloAmotif.webp", 
         "description": "poche", 
@@ -11,7 +11,7 @@
     },
 
     {
-        "id": 20, 
+        "id_article": 20, 
         "name": "polo avec col", 
         "image": "assets/poloAvecCol.webp", 
         "description": "sans poche", 
@@ -22,7 +22,7 @@
     },
 
     {
-        "id": 21, 
+        "id_article": 21, 
         "name": "polo coloré", 
         "image": "assets/poloColoré.webp", 
         "description": "poche", 
@@ -33,7 +33,7 @@
     },
 
     {
-        "id": 22, 
+        "id_article": 22, 
         "name": "polo Imprimé", 
         "image": "assets/poloImprimé.webp", 
         "description": "sans poche", 
@@ -44,7 +44,7 @@
     },
 
     {
-        "id": 23, 
+        "id_article": 23, 
         "name": "polo Rayé", 
         "image": "assets/poloRayé.webp", 
         "description": "sans poche", 
@@ -55,7 +55,7 @@
     },
     
     {
-        "id": 24, 
+        "id_article": 24, 
         "name": "polo avec Rayure", 
         "image": "assets/poloRayure.webp", 
         "description": "poche", 

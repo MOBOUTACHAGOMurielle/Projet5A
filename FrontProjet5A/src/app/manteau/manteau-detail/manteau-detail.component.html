@@ -1,12 +1,12 @@
-<div class="parent">
+<!-- <div class="parent">
     <div class="item1">
       <img src={{manteau.image}} class="photo-example" height="600px" width="500px">
     </div>
     <div class="item2">
       <div class ="nameAndPrice"> 
         <div id="sidebar" style="font-weight:bold">{{manteau.name}}</div>
-        <div id="sidebar" style="font-weight:bold">{{manteau.prix}}</div>
       </div>
+      <div id="sidebar" style="font-weight:bold">{{manteau.prix}}</div>
       <div id="sidebar">
         <p style="font-weight:bold">Description de l'article</p>
         {{manteau.description}}
@@ -30,9 +30,21 @@
       </div>
       <div class="add">
         <button mat-mini-fab>
-          <mat-icon>add</mat-icon>
+          <mat-icon (click)="addToCart(manteau)">add</mat-icon>
         </button>
         <div style="font-weight:bold">Ajouter au panier</div>
+      </div>
+    </div>
+  </div> -->
+  <div class="responsive-example-photo">
+    <div class="responsive-item-detail-photo">
+    </div>
+    <div class="responsive-item-detail">
+      <p>{{manteau.name}}</p>
+      <div class="special">offre spéciale</div>
+      <div class="prix">{{manteau.prix}}€<div class="initial">30€</div> <div class="reduc">-10%</div></div>
+      <div class="tiret">
+      -
       </div>
     </div>
   </div>

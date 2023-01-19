@@ -27,6 +27,10 @@
   background-color: #A77E7E;
 }
 
+.mat-sidenav-container {
+  background-color: #F6F1F1;
+}
+
 #list {
   flex: 1;
   color: #FAFAFA;
@@ -42,5 +46,8 @@
   flex: 1;
 }
 
+.photo{
+  padding: 100px;
+}
 
 

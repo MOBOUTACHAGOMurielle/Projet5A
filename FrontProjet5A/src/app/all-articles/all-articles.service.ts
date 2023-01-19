@@ -9,7 +9,7 @@ import { article } from "../article";
 
 export class allArticlesService {
 
-    private readonly ALL_ARTICLE_API_URL = '/assets/allArticles.json';
+    private readonly ALL_ARTICLE_API_URL = '/assets/api/allArticles.json';
 
     constructor(private http: HttpClient){}
 

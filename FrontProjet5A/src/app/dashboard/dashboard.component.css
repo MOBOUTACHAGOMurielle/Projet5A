@@ -11,3 +11,185 @@
 .example-header-image {
 background-size: cover;
 }
+
+.images{
+    display:flex;
+    animation-duration: 10s;
+    animation-name: mesImages;
+    animation-iteration-count: infinite;
+}
+
+#noel{
+   
+    width:"1200px";
+    overflow: hidden;
+}
+
+@keyframes mesImages {
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(-1200px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.texte {
+    font-family: 'Australia Custom', Courier, monospace;
+    color:black;
+    font-size: 1.2em;
+}
+
+.mat-raised-button{
+    width: 400px;
+    height: 200px;
+    font-size: 1.5em;
+    background-color: chocolate;
+}
+
+.categories{
+    max-width: 1100px;
+    margin: 0px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+
+.recommandés{
+    margin-top: 40px;
+    color:black;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+  }
+  
+.trait1 {
+    margin-right: 20px;
+}
+
+.trait2 {
+    margin-left: 20px;
+}
+
+.trait1, .trait2 {
+    margin-top: 1.2%;
+    margin-bottom: 50px;
+    height: 2px;
+    width: 200px;
+    background-color: gray;
+    border-radius: 0.1em;
+  }
+  
+#promo{
+    max-width: 1100px;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    height: 250px;
+}
+
+.uno {
+    padding: 30px;
+    line-height: 1.7;
+    overflow: hidden;
+    background-image: url(/assets/soldes.png);
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+
+.deux {
+    background-color:gainsboro;
+    padding: 30px;
+    font-size: 0.77rem;
+    line-height: 1.7;
+    overflow: hidden;
+    
+    display:inline-block;
+}
+
+.art-banner {
+    margin-top: 40px;
+    background-color: #237784;
+    height: 30vh;
+    display: grid;
+    grid-template-columns: 20px 1fr 1fr 1fr 20px;
+  }
+
+  .banner-text {
+    color: #fff;
+    font-size: 6vw;
+    font-weight: bold;
+    grid-column: 2 / span 2;
+    grid-row: 3;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .art-banner::before {
+    content: "";
+    opacity: 0.85;
+    border-top: 5px solid rgb(255, 41, 123);
+    border-right: 5px solid rgb(255, 41, 123);
+    grid-column: 4;
+    grid-row: 2 / span 3;
+  }
+  
+  .art-banner::after {
+    content: "";
+    opacity: 0.85;
+    border-bottom: 5px solid rgb(255, 41, 123);
+    border-left: 5px solid rgb(255, 41, 123);
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+.soldes2 {
+    animation-duration: .8s;
+    animation-name: clignoter;
+    animation-iteration-count: infinite;
+    transition: none;
+    font-family: 'Australia Custom';
+}
+
+.soldes2 {
+    font-size: 6em;
+    color:brown;
+    text-align: center;
+    justify-content: center;
+}
+
+.soldes1 {
+    font-size: 2em;
+    color:brown;
+    text-align: center;
+    justify-content: center;
+}
+
+@keyframes clignoter {
+    0%   { opacity:1; }
+    40%   {opacity:0; }
+    100% { opacity:1; }
+  }
+  
+.nouveaute {
+    padding: 20px;
+    overflow: hidden;
+    background-image: url(/assets/pijama.jfif);
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+
+#nouveau{
+    font-size: 2em;
+    color: green;
+    font-family: 'Australia Custom';
+}
+
+.mat-paginator{
+    background-color: lightgrey;
+    color: black;
+}

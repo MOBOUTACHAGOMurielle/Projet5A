@@ -1,18 +1,17 @@
 
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav class="sidenav">
-    
+  <mat-sidenav #sidenav class="sidenav">  
     <mat-nav-list  *ngIf="listeCategories.length>0" >
       <a mat-list-item *ngFor="let acategorie of listeCategories" routerLink="/{{acategorie.name|lowercase}}">{{acategorie.name}}</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>     
+  <mat-sidenav-content >     
     <mat-toolbar color="chocolat">
       <button (click)="sidenav.toggle()" mat-icon-button>
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span class="example-spacer"></span>
-      <a id = "list" [routerLink]="['/dasboard']">Dashboard</a>
+      <a id = "list" [routerLink]="['/dashboard']">Dashboard</a>
       <h1 *ngIf="listeCategories.length>0"></h1>
       <a id = "list" mat-list-item *ngFor="let acategorie of listeCategories" routerLink="/{{acategorie.name|lowercase}}">{{acategorie.name}}</a>
     </mat-toolbar>

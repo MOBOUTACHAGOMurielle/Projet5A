@@ -1,7 +1,7 @@
 [
     {
-        "id": 7, 
-        "name": "manteau à Bouton", 
+        "id_article": 7, 
+        "name": "Manteau à Bouton", 
         "image": "assets/manteauBouton.webp", 
         "description": "poche", 
         "prix": 27, 
@@ -11,7 +11,7 @@
     },
             
     {
-        "id": 8, 
+        "id_article": 8, 
         "name": "manteau Col Mao", 
         "image": "assets/manteauColMao.webp", 
         "description": "sans poche", 
@@ -22,7 +22,7 @@
     },
             
     {
-        "id": 9, 
+        "id_article": 9, 
         "name": "manteau Homme", 
         "image": "assets/manteauH.webp", 
         "description": "poche", 
@@ -33,7 +33,7 @@
     },
             
     {
-        "id": 10, 
+        "id_article": 10, 
         "name": "manteau Revers", 
         "image": "assets/manteauRevers.webp", 
         "description": "sans poche", 
@@ -44,7 +44,7 @@
     },
             
     {
-        "id": 11, 
+        "id_article": 11, 
         "name": "manteau Universitaire", 
         "image": "assets/ManteauUniv.webp", 
         "description": "sans poche", 
@@ -55,7 +55,7 @@
     },
             
     {
-        "id": 12, 
+        "id_article": 12, 
         "name": "veste Zippée", 
         "image": "assets/vesteZippe.webp", 
         "description": "poche", 

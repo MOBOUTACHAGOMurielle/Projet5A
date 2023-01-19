@@ -1,0 +1,137 @@
+.parent {
+    padding: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+  
+.item1, .item2 {
+background-color:#FAFAFA;
+padding: 30px;
+font-size: 0.77rem;
+line-height: 1.7;
+}
+
+.item1:nth-child(1) {
+font-size: 1.1rem;
+grid-row: span 25;
+grid-column: span 2;
+/* display: grid; */
+/* grid-template-columns: 2fr 1.5fr 1.5fr 0fr;*/
+/* grid-template-rows: 1fr 1fr 1fr 1fr; */
+color: black;
+}
+
+.item1Child {
+/* display: grid; */
+display: flex;
+color: black;
+/* grid-template-columns: 2fr 1.5fr 1.4fr 0.5fr;
+grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr; */
+}
+
+.item2Child{
+display: grid;
+grid-template-columns: 0.77fr 0.6fr 0.6fr 0.15fr;
+grid-template-rows: 0.05fr 0.05fr 0.05fr 0.05fr;
+align-items: center;
+border-color: black;
+border-radius: 1%;
+background-color: #A77E7E;
+}
+
+.item2:nth-child(2) {
+    font-size: 1.1rem;
+    grid-row: span 10;
+    color: black;
+}
+
+.intro{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+}
+
+.total{
+display: grid;
+grid-template-columns: 8fr 1fr;
+}
+
+.example-button-row {
+/* text-align: center; */
+}
+
+#promo {
+font-size: 11px;
+text-align: center;
+margin: 20px;
+}
+
+.example-spacer {
+flex: 1;
+}
+
+.example-spacer-1{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.mat-card {
+margin: 30px auto;
+background-color: #A77E7E;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1.5fr 0fr 2.8fr 0.2fr;
+}
+
+#position {
+    margin: 50px auto;
+}
+
+.card {
+    height: 60vh;
+    margin: 25px;
+    padding: 25px;
+}
+
+.center img {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    outline: none;
+    height: 162px;
+    width: 250px;
+    margin: 20px 0px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.center .btn {
+    font-size: 14px !important;
+    margin-top: 20px !important;
+    font-weight: 400;
+    padding: 12px 72px;
+    border-radius: 3px !important;
+}
+
+h2,
+h3 {
+    font-weight: 400;
+    color: black;
+}
+
+.card-title{
+    color:black;
+}
+
+.example-button-row{
+    margin: auto;
+    width: 4.95cm;
+}

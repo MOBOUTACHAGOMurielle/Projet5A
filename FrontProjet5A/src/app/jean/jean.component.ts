@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { article } from '../article';
+import { panierService } from '../panier/panier.servcie';
 // import { article } from '../formulaire-article/article';
 import { jeanService } from './jean.service';
 
@@ -11,8 +12,10 @@ import { jeanService } from './jean.service';
 export class JeanComponent implements OnInit {
 
   public errMsg: string | undefined;
+  searchKey:string= " ";
 
-  constructor(private jeanService: jeanService) { }
+  constructor(private jeanService: jeanService,
+    private panierService: panierService) { }
 
   listeJeans: article[] = [];
 
@@ -32,8 +35,9 @@ export class JeanComponent implements OnInit {
 
       // error: err => this.errMsg = err
     );
+
+    this.panierService.search.subscribe((val:any)=>{
+      this.searchKey = val;
+    })
   }
-
-
-
 }
