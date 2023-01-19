@@ -12,10 +12,21 @@
       </mat-form-field>   
     </div>
     <span class="spacer"></span>
-    <div class ="connection" >
-      <!-- <button type="button" class="btn btn-outline-danger" routerLink="/connexion">Se connecter</button> -->
+    <!-- <div class ="connection" >
       <mat-icon routerLink="/connexion">person</mat-icon>
+    </div> -->
+
+    <div *ngIf="!isUserAuthenticated()" id="color" class ="connection" >
+      <!-- <button type="button" class="btn btn-outline-danger" routerLink="/inscription">S'inscrire</button> -->
+      <mat-icon routerLink="/inscription" >person</mat-icon>
+      <mat-icon routerLink="/connexion" >person</mat-icon>
     </div>
+    <div *ngIf="isUserAuthenticated()" id="color" class ="connection" >
+      <p  *ngIf="username">Hi {{username}} !</p>
+      <button type="button" class="btn btn-outline-danger" (click)="logOut()">Deconnection</button>
+      <mat-icon >person</mat-icon>
+    </div>
+
     <span class="spacer"></span>
     <div class= "panier">
       <mat-icon [routerLink]="['/panier']" matBadge= {{totalItem}} matBadgeColor="warn">add_shopping_cart</mat-icon>

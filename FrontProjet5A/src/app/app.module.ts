@@ -45,9 +45,16 @@ import { FiterPipe } from './filtre/fiter.pipe';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { DarioComponent } from './dario/dario.component';
 
+import { ToastComponent } from './notification/components/toast/toast.component';
+import { ToasterComponent } from './notification/components/toaster/toaster.component';
+import { CommandeComponent } from './commandes/commande/commande.component';
+import { GestionCommandeComponent } from './back_office/gestion.commande/gestion.commande.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     ConnexionComponent,
+    ToastComponent, 
+    ToasterComponent,
     InscriptionComponent,
     AppComponent,
     NavComponent,
@@ -67,9 +74,13 @@ import { DarioComponent } from './dario/dario.component';
     PanierComponent,
     FiterPipe,
     DarioComponent,
+    CommandeComponent,
+    GestionCommandeComponent,
+    FooterComponent,
 
   ],
   imports: [
+    MatPaginatorModule,
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
@@ -103,9 +114,13 @@ import { DarioComponent } from './dario/dario.component';
       { path: '', redirectTo: '/dasboard', pathMatch: 'full'},
       { path: 'jean/:id', component: JeanDetailComponent },
       { path: 'manteau/:id', component: ManteauDetailComponent },
-      { path: 'tee-shirt/:id', component: TeeShirtDetailComponent},
-      { path: 'accessoires/:id', component: AccessoiresDetailComponent},
+      { path: 'tee-shirt/:id', component: TeeShirtComponent},
+      { path: 'accessoires/:id', component: AccessoiresComponent},
       { path: 'formulaire-article', component: FormulaireArticleComponent},
+      {path : "connexion", component : ConnexionComponent},
+      {path : "inscription", component : InscriptionComponent} ,
+      {path : "commande/:id", component : CommandeComponent} ,
+      {path : "gestion/commande", component : GestionCommandeComponent} ,
       { path: 'panier', component: PanierComponent},
       { path: 'dario', component: DarioComponent}
     ])

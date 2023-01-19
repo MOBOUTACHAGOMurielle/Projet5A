@@ -1,3 +1,4 @@
+<section class = "trois">
 <div class="container h-100">
   <div class="row h-100">
       <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
@@ -9,21 +10,31 @@
                       
                   </p>
               </div>
+              
 
               <div class="card">
                   <div class="card-body">
                       <div class="m-sm-4">
-                          <form>     
+                          <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">   
+
                               <div class="form-group">
-                                  <label>Email</label>
-                                  <input class="form-control form-control-lg" type="email" name="email" placeholder="Saisissez votre email">
+                                  <label>Username</label>
+                                  <input class="form-control form-control-lg" type="text" name="username" placeholder="Saisissez votre nom utilisateur" ngModel
+                                  #usernameInput="ngModel" required>
                               </div>
+                              <span class="help-block" style="color:red;"
+                              *ngIf="usernameInput.invalid && usernameInput.touched">Please enter a username</span>
+                              
                               <div class="form-group">
                                   <label>Mot de passe</label>
-                                  <input class="form-control form-control-lg" type="password" name="password" placeholder="Saisissez votre mot de passe">
+                                  <input class="form-control form-control-lg" type="password" name="password" placeholder="Saisissez votre mot de passe"  ngModel
+                                  #passwordInput="ngModel" required>
                               </div>
+                              <span class="help-block" style="color:red;"
+                              *ngIf="passwordInput.invalid && passwordInput.touched">Veuillez entrer un mot de passe.</span>
+                              
                               <div class="text-center mt-3">
-                                <button type="button" class="btn btn-danger">Se connecter</button>
+                                <button type="submit" [disabled]="loginForm.invalid " class="btn btn-danger">Se connecter</button>
                               </div>
                           </form>
                       </div>
@@ -37,3 +48,5 @@
       </div>
   </div>
 </div>
+
+</section>

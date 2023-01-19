@@ -7,6 +7,20 @@ body{
     box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);
 }
 
+.mainform{
+    color: black;
+}
+
+.form-group{
+    margin-top: 0.7cm;
+}
+
+.register{
+    margin-right: 0.5cm;
+}
+
+
+
 .card {
     position: relative;
     display: -ms-flexbox;
@@ -22,4 +36,8 @@ body{
 }
 .bouton{
     background-color: #A77E7E;
+}
+
+.trois{
+    padding: 100px;
 }
