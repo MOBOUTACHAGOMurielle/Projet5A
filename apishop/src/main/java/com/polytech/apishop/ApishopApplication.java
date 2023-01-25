@@ -1,11 +1,15 @@
 package com.polytech.apishop;
 
+import com.polytech.apishop.Entities.ERole;
 import com.polytech.apishop.Entities.panier;
+import com.polytech.apishop.Entities.role;
 import com.polytech.apishop.Entities.utilisateur;
 import com.polytech.apishop.Repos.utilisateurRepository;
 import com.polytech.apishop.ServiceImpl.articleServiceImpl;
 import com.polytech.apishop.ServiceImpl.categorieServiceImpl;
 
+import com.polytech.apishop.ServiceImpl.utilisateurServiceImpl;
+import com.polytech.apishop.Services.utilisateurService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +19,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 @SpringBootApplication
@@ -25,12 +30,13 @@ public class ApishopApplication {
 	}
 
 
-	private utilisateur user;
 
 	@Bean
-	CommandLineRunner runner(articleServiceImpl service,categorieServiceImpl categorie,utilisateurRepository utilisateurResp){
+	CommandLineRunner runner(articleServiceImpl service, categorieServiceImpl categorie, utilisateurService userservice){
 		return args -> {
 
+			userservice.saveRole(new role(ERole.ROLE_USER));
+			userservice.saveRole(new role(ERole.ROLE_ADMIN));
 			service.addArticle("Pants","zhsfbiudfbjdsfe",20,"L",5,"ddfdd");
 			service.addArticle("dkdfd","zhsfbiudfbjdsfe",200,"L",15,"dvddvv");
 			service.addArticle("dvdlvee","zhsfbiudfbjdsfe",40,"L",55,"dvd");
@@ -42,9 +48,25 @@ public class ApishopApplication {
 			categorie.addCategorie("Veste", "popo");
 			categorie.addCategorie("Bijoux", "mou");
 
-			
-			user = new utilisateur("jeanbon","taper","Philippe","Jean","Jeanphilippe@hotmail.fr",null,null,new panier(),null,null);
-			utilisateurResp.save(user);
+//
+//			utilisateur user = new utilisateur("user@test.fr","password","Borne","Christine","mail",null,new ArrayList<>(),null,null);
+			userservice.save(new utilisateur("user@test.fr","password","Borne","Christine","mail",null,new ArrayList<>(),null,null));
+
+			userservice.addRoleToUSer("user@test.fr", ERole.ROLE_ADMIN.name());
+
+//			utilisateur user = new utilisateur();
+//			user.setUsername("test");
+//			user.setPassword("password");
+//			user.setAuthorities(new ArrayList<>());
+//			userservice.save(user);
+//
+//			utilisateur admin = new utilisateur();
+//			admin.setNom("Sam");
+//			admin.setPrenom("Alex");
+//			admin.setUsername("user@test.fr");
+//			admin.setPassword("password");
+//			userservice.save(admin);
+//			userservice.addRoleToUSer(admin.getUsername(), ERole.ROLE_ADMIN.name());
 		};
 	}
 

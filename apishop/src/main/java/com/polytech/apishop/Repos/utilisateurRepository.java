@@ -14,4 +14,8 @@ import com.polytech.apishop.Entities.utilisateur;
 public interface utilisateurRepository extends JpaRepository<utilisateur,Integer> {
     @Query("SELECT u.panier FROM utilisateur u WHERE u.id = :id")
     Optional<panier> findPanier(@Param("id") Integer id);
+    utilisateur findByUsername(String username);
+    utilisateur findById(int id);
+
+
 }

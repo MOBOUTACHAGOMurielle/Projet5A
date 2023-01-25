@@ -9,7 +9,7 @@ public class ligneCommande {
     private Integer id_ligneCommande;
     private int quantite;
     private float prix;
-    @OneToOne
+    @ManyToOne
     private article article;
     @ManyToOne
     @JoinColumn(name = "id_commande", referencedColumnName = "id_commande")
