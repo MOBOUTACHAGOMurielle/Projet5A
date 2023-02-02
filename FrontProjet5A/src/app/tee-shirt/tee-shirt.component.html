@@ -1,6 +1,12 @@
 <div class="messagedefilant">
     <div data-text="Découvrez nos tee-shirt en coton. 1 acheté le deuxième à -50%"><span>Découvrez nos tee-shirt en coton. 1 acheté le deuxième à -50%</span></div>
   </div>
+<div class="add">
+    <button mat-mini-fab>
+        <mat-icon (click) ="addArticle()">add</mat-icon>
+    </button>
+    <span>Ajouter un article</span>
+</div>
 <section class = "trois">
     <div *ngIf="listeTeeShirt && listeTeeShirt.length>0" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="5%" fxLayoutAlign="center">
         <mat-card class="example-card" *ngFor="let acategorie of listeTeeShirt | fiter:searchKey:'name'" >

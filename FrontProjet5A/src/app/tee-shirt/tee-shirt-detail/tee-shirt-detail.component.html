@@ -1,43 +1,53 @@
-<div class="parent">
-    <div class="item1">
+<div class="responsive-example-photo">
+    <div class="responsive-item-detail-photo">
       <img src={{teeShirt.image}} class="photo-example" height="600px" width="500px">
     </div>
-    <div class="item2">
-      <div class ="nameAndPrice"> 
-        <div id="sidebar" style="font-weight:bold">{{teeShirt.name}}</div>
-        <div id="sidebar" style="font-weight:bold">{{teeShirt.prix}}</div>
+    <div class="responsive-item-detail">
+      <p>{{teeShirt.name}}<mat-icon id="edit" alignItems="center" (click)="onEdit(teeShirt)">edit</mat-icon></p>
+      <div class="special">offre spéciale</div>
+      <div class="prix">{{teeShirt.prix}}€<div class="initial">30€</div> <div class="reduc">-10%</div></div>
+      <div class="tiret">
+        ----------------------------------------------------------------
       </div>
-      <div id="sidebar">
-        <p style="font-weight:bold">Description de l'article</p>
-        {{teeShirt.description}}
-      </div>
-      <div>
-        <div id="sidebar" style="font-weight:bold">Quantité en stock</div>
-        <div id="sidebar">{{teeShirt.quantite}}</div>
-      </div>
-      <div id="sidebar">Taille(FR)
-        <div> 
-          <mat-button-toggle name="favoriteColor" aria-label="Favorite Color" value="Taille">
-            {{teeShirt.taille}}
-          </mat-button-toggle>
-        </div>
+      <div class="boxTaille">
+        Taille(FR)
+        <p>
+          <button mat-raised-button class="taille">
+            <mat-label>{{teeShirt.taille}}</mat-label>
+              <mat-select>
+                  <mat-option class="tailleTab">
+                      M
+                  </mat-option>
+                  <mat-option class="tailleTab">
+                      S
+                  </mat-option>
+                  <mat-option class="tailleTab">
+                      L
+                  </mat-option>
+              </mat-select>
+          </button>
+        </p>
       </div>
       <div class="mesure">
         <div>
-          <mat-icon>straighten</mat-icon>
+          <mat-icon (click)="onView()">straighten</mat-icon>
         </div>
         <div>Guide des tailles</div>
       </div>
-      <div class="add">
-        <button mat-mini-fab>
-          <mat-icon (click)="addToCart(teeShirt)">add</mat-icon>
-        </button>
-        <div style="font-weight:bold">Ajouter au panier</div>
+      <div>
+        Quantité en stock
+        <p>{{teeShirt.quantite}}</p>
+      </div>
+      <div class="tiret">
+        ----------------------------------------------------------------
+      </div>
+      <div class="example-button-row">
+        <button mat-raised-button class="commande" (click)="addToCart(teeShirt, teeShirt.id_article)">Ajoutez au panier</button>
       </div>
     </div>
   </div>
 
-  <h1 style="font-weight:bold"> Commentaire des Clients</h1>
+  <h1 style="font-weight:bold" id ="commentaire"> Commentaire des Clients</h1>
   <div class="layout">
     <div class="note">Note moyenne
       <div>

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { article } from 'src/app/article';
+import { FormulaireArticleComponent } from 'src/app/formulaire-article/formulaire-article.component';
+import { articleService } from 'src/app/formulaire-article/formulaire-article.service';
+import { GuideDesTaillesComponent } from 'src/app/guide-des-tailles/guide-des-tailles.component';
 import { panierService } from 'src/app/panier/panier.servcie';
 import { teeshirtService } from '../tee-shirt.service';
 
@@ -16,8 +20,10 @@ export class TeeShirtDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private listeTeeShirt: teeshirtService,
-    private panierService: panierService
-  ) { }
+    private panierService: panierService,
+    private dialog: MatDialog,
+    private modifierArticleForm: articleService
+    ) { }
 
   ngOnInit(): void {
     const id: number = +this.route.snapshot.paramMap.get('id')!; //+ pour convertir un string en un nombre snapshot recupère la valeur initiale
@@ -27,7 +33,18 @@ export class TeeShirtDetailComponent implements OnInit {
     })
   } 
 
-  addToCart(item:any){
-    this.panierService.addtoCart(item);
+  
+  addToCart(item:any, id:number){
+    this.panierService.addtoCart(item, id);
   }
+
+  onEdit(element:any){
+    this.modifierArticleForm.populateArticleForm(element);
+    this.dialog.open(FormulaireArticleComponent,{width:'50%',disableClose:true,autoFocus:true,panelClass:'bg-color'});
+  }
+
+  onView() {
+    this.dialog.open(GuideDesTaillesComponent,{width:'50%',disableClose:true,autoFocus:true,panelClass:'bg-color'});
+  }
+  
 }

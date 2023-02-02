@@ -11,9 +11,13 @@ import { article } from "../article";
 
 export class panierService {
 
-    // private readonly JEAN_API_URL = '/assets/api/jean.json';
+    private readonly PANIER_API_URL = environment.host;
 
-    // constructor(private http: HttpClient){}
+    public cartItemList: any = [];
+    public productList = new BehaviorSubject<any>([]);
+    public search = new BehaviorSubject<string>("");
+
+    constructor(private http: HttpClient){}
 
     // public getPanier(): Observable<article[]> {
 
@@ -35,11 +39,6 @@ export class panierService {
     //     return throwError(() => new Error('Something bad happened; please try again later.'));
     //   }
 
-  public cartItemList: any = [];
-  public productList = new BehaviorSubject<any>([]);
-  public search = new BehaviorSubject<string>("");
-
-  constructor() { }
   getProducts(){
     return this.productList.asObservable();
   }
@@ -49,16 +48,28 @@ export class panierService {
     this.productList.next(product);
   }
 
-  addtoCart(product : any){
+  addtoCart(product : any, id:number){
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
+
+    // const articlestr = JSON.stringify(product,null,2);
+    //   const articleJson = JSON.parse(articlestr);
+  
+    //   this.http.post(`${this.PANIER_API_URL}/panier/ajouter/${id}`, articleJson).subscribe({
+    //     error: (err) => {  
+    //       console.error(err) 
+    //     },
+  
+    //     complete: () => console.info('save successful')
+  
+    //   });
   }
 
   getTotalPrice() : number{
     let grandTotal = 0;
     this.cartItemList.map((a:any)=>{
-      grandTotal += a.prix;
+      grandTotal += a.prix*a.quantite;
     })
     return grandTotal;
   }

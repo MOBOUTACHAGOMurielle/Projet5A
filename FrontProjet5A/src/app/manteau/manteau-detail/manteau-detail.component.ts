@@ -3,6 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { article } from 'src/app/article';
 import { manteauService } from '../manteau.service';
 import { panierService } from 'src/app/panier/panier.servcie';
+import { GuideDesTaillesComponent } from 'src/app/guide-des-tailles/guide-des-tailles.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { articleService } from 'src/app/formulaire-article/formulaire-article.service';
+import { FormulaireArticleComponent } from 'src/app/formulaire-article/formulaire-article.component';
 
 @Component({
   selector: 'app-manteau-detail',
@@ -16,7 +20,9 @@ export class ManteauDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private listeManteau: manteauService,
-    private panierService: panierService
+    private panierService: panierService,
+    private dialog: MatDialog,
+    private modifierArticleForm: articleService
   ) { }
 
   ngOnInit(): void {
@@ -28,8 +34,17 @@ export class ManteauDetailComponent implements OnInit {
     })
   }
 
-  addToCart(item:any){
-    this.panierService.addtoCart(item);
+  addToCart(item:any, id:number){
+    this.panierService.addtoCart(item, id);
+  }
+
+  onEdit(element:any){
+    this.modifierArticleForm.populateArticleForm(element);
+    this.dialog.open(FormulaireArticleComponent,{width:'50%',disableClose:true,autoFocus:true,panelClass:'bg-color'});
+  }
+
+  onView() {
+    this.dialog.open(GuideDesTaillesComponent,{width:'50%',disableClose:true,autoFocus:true,panelClass:'bg-color'});
   }
   
 }

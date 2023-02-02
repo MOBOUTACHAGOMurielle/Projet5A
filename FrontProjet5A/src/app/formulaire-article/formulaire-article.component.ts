@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { article } from './article';
+import { article } from '../article';
+import { articleService } from 'src/app/formulaire-article/formulaire-article.service';
+import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-formulaire-article',
@@ -10,17 +12,36 @@ import { article } from './article';
 })
 export class FormulaireArticleComponent implements OnInit {
 
-  public article: article = new article();
+  // public article: article = new article();
 
-  constructor() { }
+  constructor(public articleService: articleService, 
+    public dialogRef: DialogRef<FormulaireArticleComponent>) { }
 
   ngOnInit(): void {
   }
 
-  public Ajouter(registerForm:NgForm) {
-    console.log(registerForm.form);
-    console.log('valeurs: ', JSON.stringify(registerForm.value));
-    console.log("hello")
+  onClear() {
+    this.articleService.form.reset();
+    this.articleService.initializeArticleFormGroup();
+  }
+
+  onSubmit() {
+    if (this.articleService.form.value.id_article) {
+      console.log(this.articleService.form.value);
+      this.articleService.updateArticle(this.articleService.form.value,this.articleService.form.value.id_article);
+      this.articleService.form.reset();
+      this.articleService.initializeArticleFormGroup();
+      this.onClose();
+    }
+    else
+      this.articleService.addNewArticle(this.articleService.form.value); 
+      this.onClose();
+  }
+
+  onClose() {
+    this.articleService.form.reset();
+    this.articleService.initializeArticleFormGroup();
+    this.dialogRef.close();
   }
 
 }

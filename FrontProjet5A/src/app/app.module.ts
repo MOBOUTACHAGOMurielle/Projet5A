@@ -16,6 +16,7 @@ import { MatSidenavModule} from '@angular/material/sidenav';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JeanComponent } from './jean/jean.component';
 import { RouterModule } from '@angular/router';
@@ -43,13 +44,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatBadgeModule } from '@angular/material/badge';
 import { FiterPipe } from './filtre/fiter.pipe';
 import { MatPaginatorModule} from '@angular/material/paginator';
-import { DarioComponent } from './dario/dario.component';
-
+import { MatTableModule } from '@angular/material/table';
 import { ToastComponent } from './notification/components/toast/toast.component';
 import { ToasterComponent } from './notification/components/toaster/toaster.component';
 import { CommandeComponent } from './commandes/commande/commande.component';
 import { GestionCommandeComponent } from './back_office/gestion.commande/gestion.commande.component';
 import { FooterComponent } from './footer/footer.component';
+import { GuideDesTaillesComponent } from './guide-des-tailles/guide-des-tailles.component';
 @NgModule({
   declarations: [
     ConnexionComponent,
@@ -73,10 +74,10 @@ import { FooterComponent } from './footer/footer.component';
     FormulaireArticleComponent,
     PanierComponent,
     FiterPipe,
-    DarioComponent,
     CommandeComponent,
     GestionCommandeComponent,
     FooterComponent,
+    GuideDesTaillesComponent,
 
   ],
   imports: [
@@ -105,24 +106,27 @@ import { FooterComponent } from './footer/footer.component';
     MatSelectModule,
     MatBadgeModule,
     MatPaginatorModule,
+    MatTableModule,
+    MatDialogModule,
     RouterModule.forRoot([
       { path: 'jean', component: JeanComponent },
       { path: 'manteau', component: ManteauComponent },
       { path: 'tee-shirt', component: TeeShirtComponent },
       { path: 'accessoires', component: AccessoiresComponent },
       { path: 'dashboard', component: DashboardComponent },
-      { path: '', redirectTo: '/dasboard', pathMatch: 'full'},
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
       { path: 'jean/:id', component: JeanDetailComponent },
       { path: 'manteau/:id', component: ManteauDetailComponent },
-      { path: 'tee-shirt/:id', component: TeeShirtComponent},
-      { path: 'accessoires/:id', component: AccessoiresComponent},
+      { path: 'tee-shirt/:id', component: TeeShirtDetailComponent},
+      { path: 'accessoires/:id', component: AccessoiresDetailComponent},
       { path: 'formulaire-article', component: FormulaireArticleComponent},
-      {path : "connexion", component : ConnexionComponent},
-      {path : "inscription", component : InscriptionComponent} ,
-      {path : "commande/:id", component : CommandeComponent} ,
-      {path : "gestion/commande", component : GestionCommandeComponent} ,
+      { path : "connexion", component : ConnexionComponent},
+      { path : "inscription", component : InscriptionComponent} ,
+      { path : "commande/:id", component : CommandeComponent} ,
+      { path : "gestion/commande", component : GestionCommandeComponent} ,
       { path: 'panier', component: PanierComponent},
-      { path: 'dario', component: DarioComponent}
+      { path: 'guide-des-tailles', component: GuideDesTaillesComponent},
+      { path: '**', redirectTo: 'dashboard'}
     ])
   ],
   providers: [],
