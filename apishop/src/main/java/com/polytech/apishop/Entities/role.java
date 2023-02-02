@@ -1,51 +1,27 @@
 package com.polytech.apishop.Entities;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class role {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
-    private Integer id_role;
-    private String nom;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", referencedColumnName = "id")
-    private utilisateur utilisateur;
-
-    public role(){
-        
-    }
-
-    public role(String nom,utilisateur utilisateur){
+    public role(ERole nom) {
         this.nom = nom;
-        this.utilisateur = utilisateur;
     }
-
-
-    public utilisateur getUtilisateur() {
-        return this.utilisateur;
-    }
-
-    public void setUtilisateur(utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
-    }
-
-    public Integer getId_role() {
-        return this.id_role;
-    }
-
-    public void setId_role(Integer id_role) {
-        this.id_role = id_role;
-    }
+    @Enumerated(EnumType.STRING)
+    private ERole nom;
 
     public String getNom() {
-        return this.nom;
+        return nom.name();
     }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
 }

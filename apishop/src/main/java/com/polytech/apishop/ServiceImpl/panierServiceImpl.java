@@ -12,6 +12,12 @@ import com.polytech.apishop.Services.panierService;
 @Service
 public class panierServiceImpl implements panierService{
 
+    @Override
+    public panier create(Integer panier_id, List<Integer> ligne_panier_id) {
+        return null;
+    }
+
+    //    private final
     public panier ajoutArticle(Optional<panier> testpanierpresent, lignePanier lignePanier){
         panier _panierajouter = testpanierpresent.get(); 
         List<lignePanier> ligneaddarticle = _panierajouter.getLignePanier(); // recup la liste des lignes du panier existant
@@ -20,5 +26,10 @@ public class panierServiceImpl implements panierService{
         _panierajouter.setPrix_total(_panierajouter.getPrix_total()+lignePanier.getPrix());
         return _panierajouter;
     }
+
+
+
+
+
 
 }

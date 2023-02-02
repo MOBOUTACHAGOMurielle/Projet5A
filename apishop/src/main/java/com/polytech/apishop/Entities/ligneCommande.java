@@ -9,11 +9,11 @@ public class ligneCommande {
     private Integer id_ligneCommande;
     private int quantite;
     private float prix;
-    @OneToOne
-    private article article;
     @ManyToOne
-    @JoinColumn(name = "id_commande", referencedColumnName = "id_commande")
-    private commande commande;
+    private article article;
+//    @ManyToOne
+//    @JoinColumn(name = "id_commande", referencedColumnName = "id_commande")
+//    private commande commande;
 
     public ligneCommande(){
 
@@ -23,7 +23,7 @@ public class ligneCommande {
         this.quantite = quantite;
         this.prix = prix;
         this.article = article;
-        this.commande = commande;
+//        this.commande = commande;
     }
 
     public Integer getId_ligneCommande() {
@@ -57,12 +57,12 @@ public class ligneCommande {
     public void setArticle(article article) {
         this.article = article;
     }
-    public commande getCommande() {
-        return this.commande;
-    }
-
-    public void setCommande(commande commande) {
-        this.commande = commande;
-    }
+//    public commande getCommande() {
+//        return this.commande;
+//    }
+//
+//    public void setCommande(commande commande) {
+//        this.commande = commande;
+//    }
 
 }
