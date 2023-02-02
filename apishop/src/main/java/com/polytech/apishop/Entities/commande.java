@@ -1,5 +1,6 @@
 package com.polytech.apishop.Entities;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -19,6 +20,9 @@ public class commande {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id")
     private utilisateur utilisateur;
+
+    @OneToMany
+    private List<ligneCommande> ligneCommandes;
 
     public commande(){
 

@@ -38,6 +38,8 @@ public class utilisateur {
     @OneToMany(mappedBy = "utilisateur")
     private List<commande> commande;
 
+    private boolean isActive;
+    private boolean isNotLocked;
 
     public utilisateur(String username, String password, String nom, String prenom, String email, Date date_creation_compte, Collection<role> authorities, com.polytech.apishop.Entities.panier panier, List<com.polytech.apishop.Entities.commande> commande) {
         this.username = username;
