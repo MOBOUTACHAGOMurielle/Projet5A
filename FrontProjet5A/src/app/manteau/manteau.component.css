@@ -20,7 +20,7 @@ background-size: cover;
 .messagedefilant {
     display: block;
     margin: 40px auto;
-    padding: 20px;
+    padding: 10px;
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -104,4 +104,9 @@ background-size: cover;
   font-size: 0.77rem;
   line-height: 1.7;
   overflow: auto;
+}
+
+.add {
+  margin-left: 87%;
+  color: black;
 }

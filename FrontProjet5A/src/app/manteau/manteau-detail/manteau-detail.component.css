@@ -1,68 +1,14 @@
-/* html,
-body {
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  font-family: sans-serif;
-  font-size: 1rem;
-} */
-
-/* .click {
-  padding: 20px;
-  text-align: center;
-}
-
-.parent {
-  padding: 100px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px;
-}
-
-.item1, .item2 {
-  background-color:#FAFAFA;
-  padding: 30px;
-  font-size: 0.77rem;
-  line-height: 1.7;
-}
-
-.item2:nth-child(2) {
-    font-size: 1.1rem;
-    grid-row: span 25;
-    grid-column: span 1;
-    display: grid;
-} */
-
-/* .mesure {
+.mesure {
   grid-template-columns: 1fr 8fr;
   display: grid;
+  margin: 20px auto 0px;
 }
-
-.nameAndPrice {
-  grid-template-columns: 1fr 2fr;
-  display: grid;
-}
-
-.add {
-  grid-template-columns: 1fr 6fr;
-  display: grid;
-} */
-
-/* .item1:nth-child(1) {
-  font-size: 1.1rem;
-  grid-row: span 25;
-  grid-column: span 2;
-  display: grid;
-  align-content: center;
-} */
 
 .responsive-example-photo{
   max-width: 1100px;
   margin: 60px auto;
   display: grid;
-  grid-template-columns: 2.5fr 1.5fr; /*repeat(auto-fit, minmax(180px, 1fr)); */
+  grid-template-columns: 2.5fr 1.5fr; 
   gap: 30px;
 }
 
@@ -96,6 +42,7 @@ body {
 .initial {
   color: black;
   font-size: 0.7em;
+  opacity: 0.5;
   margin:-5px 5px;
   text-decoration : line-through;
   font-family: 'Courier New', Courier, monospace;
@@ -112,17 +59,13 @@ body {
 }
 
 .responsive-item-detail-photo {
-  background-image: url(/assets/manteauBouton.webp);
   background-size : cover;
 }
 
-.tiret {
-  display: grid;
-  grid-template-columns: repeat();
-  color: black;
-  margin: 20px auto 20px;
-  gap: 1px;
-}
+ .tiret {
+  opacity: 0.2;
+  margin: 20px auto 15px;
+} 
 
 #sidebar, .mesure, .add{
   color:black;
@@ -268,12 +211,14 @@ body {
   overflow: auto;
 }
 
-/* .art-banner-bg {
-  opacity: 0.15;
-  background-size: cover;
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
-} */
+.taille {
+  background-color: #A77E7E;
+}
+
+.tailleTab {
+  background-color: #fff;
+  color: black;
+}
 
 .banner-text {
   color: #fff;
@@ -322,4 +267,19 @@ body {
   border-left: 5px solid rgb(255, 41, 123);
   grid-column: 2;
   grid-row: 4;
+}
+
+.example-button-row{
+  margin: 70px auto;
+  width: 6cm;
+}
+
+.commande {
+  width: 6cm;
+  height: 1.5cm;
+  background-color: #A77E7E;
+}
+
+#commentaire {
+  color: black;
 }

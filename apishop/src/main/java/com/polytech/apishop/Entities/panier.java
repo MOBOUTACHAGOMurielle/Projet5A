@@ -1,5 +1,6 @@
 package com.polytech.apishop.Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -14,7 +15,7 @@ public class panier {
     private Integer id_panier;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<lignePanier> lignePanier; 
+    private List<lignePanier> lignePanier = new ArrayList<lignePanier>();
     
     private float prix_total=0;
 

@@ -1,9 +1,10 @@
 package com.polytech.apishop.ServiceImpl;
 
-import com.fasterxml.jackson.databind.ser.std.UUIDSerializer;
 import com.polytech.apishop.Entities.ERole;
+import com.polytech.apishop.Entities.panier;
 import com.polytech.apishop.Entities.role;
 import com.polytech.apishop.Entities.utilisateur;
+import com.polytech.apishop.Repos.panierRepository;
 import com.polytech.apishop.Repos.roleRepository;
 import com.polytech.apishop.Repos.utilisateurRepository;
 import com.polytech.apishop.Services.utilisateurService;
@@ -15,7 +16,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.management.relation.Role;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,11 +29,13 @@ public class utilisateurServiceImpl implements utilisateurService, UserDetailsSe
 
     private final utilisateurRepository iuser;
     private final roleRepository irole;
+    private final panierRepository ipanier;
     private final PasswordEncoder passwordEncoder;
 
-    public utilisateurServiceImpl(utilisateurRepository iuser, roleRepository irole, PasswordEncoder passwordEncoder) {
+    public utilisateurServiceImpl(utilisateurRepository iuser, roleRepository irole, panierRepository ipanier, PasswordEncoder passwordEncoder) {
         this.iuser = iuser;
         this.irole = irole;
+        this.ipanier = ipanier;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -42,6 +44,8 @@ public class utilisateurServiceImpl implements utilisateurService, UserDetailsSe
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         role rl = irole.findByNom(ERole.ROLE_USER).orElseThrow(() -> new RuntimeException("Error: Default Role USER Not Found !")) ;
         user.getAuthorities().add(rl);
+        panier userpanier = ipanier.save(new panier());
+        user.setPanier(userpanier);
         return iuser.save(user);
     }
 

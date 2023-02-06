@@ -1,0 +1,39 @@
+<mat-toolbar>
+    <span>GUIDE DES TAILLES</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+  <div class="mat-elevation-z8">
+      <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="Taille">
+          <mat-header-cell *matHeaderCellDef>Taille</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.Taille}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="FR">
+          <mat-header-cell *matHeaderCellDef>FR</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.FR}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Carrure">
+            <mat-header-cell *matHeaderCellDef>Carrure</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.Carrure}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Longueur">
+            <mat-header-cell *matHeaderCellDef>Longueur</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.Longueur}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Manches">
+            <mat-header-cell *matHeaderCellDef>Manches</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.Manches}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Poitrine">
+            <mat-header-cell *matHeaderCellDef>Poitrine</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.Poitrine}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Poignet">
+            <mat-header-cell *matHeaderCellDef>Poignet</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.Poignet}}</mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>

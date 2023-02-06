@@ -4,6 +4,9 @@ HELP.md
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+
+/build
+
 ### STS ###
 .apt_generated
 .classpath
@@ -34,27 +37,4 @@ out/
 
 ### VS Code ###
 .vscode/
-/build
-/build/classes/java/main/com/polytech/apishop/Entities/article.class
-/build/classes/java/main/com/polytech/apishop/Controllers/articleController.class
-/build/classes/java/main/com/polytech/apishop/Services/articleService.class
-/build/classes/java/main/com/polytech/apishop/ServiceImpl/articleServiceImpl.class
-/build/classes/java/main/com/polytech/apishop/Services/categorieService.class
-/build/classes/java/main/com/polytech/apishop/ServiceImpl/categorieServiceImpl.class
-/build/classes/java/main/com/polytech/apishop/Controllers/commandeController.class
-/build/classes/java/main/com/polytech/apishop/Entities/commentaire.class
-/build/classes/java/main/com/polytech/apishop/config/filter/CustomAuthenticationFilter.class
-/build/classes/java/main/com/polytech/apishop/config/filter/CustomAuthorizationFilter.class
-/build/classes/java/main/com/polytech/apishop/config/filter/CustomResponse.class
-/build/classes/java/main/com/polytech/apishop/Entities/ERole.class
-/build/classes/java/main/com/polytech/apishop/Entities/ligneCommande.class
-/build/classes/java/main/com/polytech/apishop/Entities/lignePanier.class
-/build/classes/java/main/com/polytech/apishop/Repos/lignePanierRepository.class
-/build/classes/java/main/com/polytech/apishop/Controllers/panierController.class
-/build/classes/java/main/com/polytech/apishop/Services/panierService.class
-/build/classes/java/main/com/polytech/apishop/ServiceImpl/panierServiceImpl.class
-/build/classes/java/main/com/polytech/apishop/Repos/roleRepository.class
-/build/classes/java/main/com/polytech/apishop/config/SecurityConfig.class
-/build/classes/java/main/com/polytech/apishop/config/filter/UserDTO.class
 /build/classes/java/main/com/polytech/apishop/Services/utilisateurService.class
-/build/classes/java/main/com/polytech/apishop/ServiceImpl/utilisateurServiceImpl.class

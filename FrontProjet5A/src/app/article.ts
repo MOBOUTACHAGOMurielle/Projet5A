@@ -6,6 +6,7 @@ export interface article {
     prix: number;
     taille: string;
     note: number;
+    image_url: string;
     //commentaire: string;
     quantite: number;
 }

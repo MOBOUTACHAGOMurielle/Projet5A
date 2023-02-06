@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { article } from '../article';
+import { FormulaireArticleComponent } from '../formulaire-article/formulaire-article.component';
+import { articleService } from '../formulaire-article/formulaire-article.service';
 import { panierService } from '../panier/panier.servcie';
 import { teeshirtService } from './tee-shirt.service';
 
@@ -14,7 +17,10 @@ export class TeeShirtComponent implements OnInit {
   searchKey:string= " ";
 
   constructor(private teeShirtService: teeshirtService,
-    private panierService: panierService) { }
+    private panierService: panierService,
+    private dialog: MatDialog,
+    private modifierArticleForm: articleService
+    ) { }
 
   listeTeeShirt: article[] = [];
 
@@ -30,5 +36,10 @@ export class TeeShirtComponent implements OnInit {
     this.panierService.search.subscribe((val:any)=>{
       this.searchKey = val;
     })
+  }
+
+  addArticle(){
+    this.modifierArticleForm.initializeArticleFormGroup();
+    this.dialog.open(FormulaireArticleComponent,{width:'50%',disableClose:true,autoFocus:true,panelClass:'bg-color'});
   }
 }

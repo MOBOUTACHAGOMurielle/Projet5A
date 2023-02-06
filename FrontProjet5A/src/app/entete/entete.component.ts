@@ -23,6 +23,7 @@ export class EnteteComponent implements OnInit {
   public totalItem : number = 0;
   public errMsg: string | undefined;
   public searchTerm : string='';
+  filteredArticles!: article[];
 
   constructor(
     private listeArticles: allArticlesService,private router: Router, /*private notification: NotificationService*/

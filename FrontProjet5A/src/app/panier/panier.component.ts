@@ -53,4 +53,16 @@ export class PanierComponent implements OnInit {
     this.panierService.removeAllCart();
   }
 
+  inc(element:any) {
+    if(element.quantite != 11){
+      element.quantite += 1;
+    }
+  }
+
+  dec(element:any) {
+    if(element.quantite != 1){
+      element.quantite -= 1;
+    }
+  }
+
 }

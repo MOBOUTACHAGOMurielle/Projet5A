@@ -38,18 +38,54 @@
   </div> -->
   <div class="responsive-example-photo">
     <div class="responsive-item-detail-photo">
+      <img src={{manteau.image}} class="photo-example" height="600px" width="500px">
     </div>
     <div class="responsive-item-detail">
-      <p>{{manteau.name}}</p>
+      <p>{{manteau.name}}<mat-icon id="edit" alignItems="center" (click)="onEdit(manteau)">edit</mat-icon></p>
       <div class="special">offre spéciale</div>
       <div class="prix">{{manteau.prix}}€<div class="initial">30€</div> <div class="reduc">-10%</div></div>
       <div class="tiret">
-      -
+        ----------------------------------------------------------------
+      </div>
+      <div class="boxTaille">
+        Taille(FR)
+        <p>
+          <button mat-raised-button class="taille">
+            <mat-label>{{manteau.taille}}</mat-label>
+              <mat-select>
+                  <mat-option class="tailleTab">
+                      M
+                  </mat-option>
+                  <mat-option class="tailleTab">
+                      S
+                  </mat-option>
+                  <mat-option class="tailleTab">
+                      L
+                  </mat-option>
+              </mat-select>
+          </button>
+        </p>
+      </div>
+      <div class="mesure">
+        <div>
+          <mat-icon (click)="onView()">straighten</mat-icon>
+        </div>
+        <div>Guide des tailles</div>
+      </div>
+      <div>
+        Quantité en stock
+        <p>{{manteau.quantite}}</p>
+      </div>
+      <div class="tiret">
+        ----------------------------------------------------------------
+      </div>
+      <div class="example-button-row">
+        <button mat-raised-button class="commande" (click)="addToCart(manteau, manteau.id_article)">Ajoutez au panier</button>
       </div>
     </div>
   </div>
 
-  <h1 style="font-weight:bold"> Commentaire des Clients</h1>
+  <h1 style="font-weight:bold" id ="commentaire"> Commentaire des Clients</h1>
   <div class="layout">
     <div class="note">Note moyenne
       <div>

@@ -1,48 +1,40 @@
-<mat-card>
-      <mat-card-content>
-        <form (ngSubmit)="Ajouter(registerForm)" #registerForm="ngForm">
-          <h2>Ajoutez votre article</h2>
-          <mat-form-field class="full-width-input">
-            <input matInput placeholder="Nom de l'article" required [(ngModel)]="article.name" name="name">
-            <mat-error>
-              Veuillez entrer le nom de l'article
-             </mat-error>
+
+  <mat-toolbar>
+    <span>{{articleService.form.controls['id_article'].value?"Modifier un article":"Ajouter un article"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+  <form [formGroup]="articleService.form" class="normal-form" (submit)="onSubmit()">
+    <mat-grid-list cols="1" rowHeight="400px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <input type="hidden" formControlName="id_article">
+          <mat-form-field>
+            <input formControlName="name" matInput placeholder="Nom*">
+            <mat-error>Ce champ est obligatoire</mat-error>
           </mat-form-field>
-          <mat-form-field class="full-width-input">
-            <input matInput placeholder="Taille" required [(ngModel)]="article.taille" name="taille" class="form-control">
-            <mat-error>
-              Veuillez entrer la taille de l'article
-             </mat-error>
+          <mat-form-field>
+            <input formControlName="prix" matInput placeholder="Adresse*" class="show">
+            <mat-error>Ce champ est obligatoire</mat-error>
           </mat-form-field>
-          <mat-form-field class="full-width-input">
-            <input matInput placeholder="Prix" required [(ngModel)]="article.prix" name="prix" class="form-control">
-            <mat-error>
-              Veuillez entrer le prix de l'article
-            </mat-error>
+          <mat-form-field >
+            <input formControlName="taille" matInput placeholder="code postale*">
+            <mat-error>Ce champ est obligatoire</mat-error>
           </mat-form-field>
-          <mat-form-field class="full-width-input">
-            <input matInput placeholder="Quantité en stock" required [(ngModel)]="article.quantite" name="quantite" class="form-control">
-            <mat-error>
-              Veuillez entrer la quantité en stock de l'article
-            </mat-error>
+          <mat-form-field>
+            <input formControlName="quantite" matInput placeholder="ville*">
           </mat-form-field>
-          <mat-radio-group class="margin-left">
-            <mat-radio-button value="male"> Jean </mat-radio-button>
-            <span class="example-spacer"></span>
-            <mat-radio-button value="female"> Manteau </mat-radio-button>
-            <span class="example-spacer"></span>
-            <mat-radio-button value="male"> Tee-shirt </mat-radio-button>
-            <span class="example-spacer"></span>
-            <mat-radio-button value="female"> Accessoire </mat-radio-button>
-          </mat-radio-group>   
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Description de l'article</mat-label>
-            <textarea matInput placeholder="manteau en laine..." [(ngModel)]="article.description" required name="description" class="form-control"></textarea>
-            <mat-error>
-              Veuillez entrer la description de l'article
-             </mat-error>
-          </mat-form-field>
-          <button mat-raised-button type="submit">Ajouter</button>
-        </form>
-      </mat-card-content>
-    </mat-card>
+          <mat-form-field appearance="outline">
+            <div class="url_image">
+              <mat-icon> attach_file</mat-icon>
+              <input type="text" formControlName="image_url" matInput>
+            </div>
+          </mat-form-field>   
+          <div class="button-row">
+            <button mat-raised-button color="warn" type="submit">Submit</button>
+            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>

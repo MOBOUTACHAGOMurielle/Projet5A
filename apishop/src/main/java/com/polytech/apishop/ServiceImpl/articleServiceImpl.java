@@ -10,7 +10,10 @@ import org.springframework.stereotype.Service;
 import com.polytech.apishop.Entities.article;
 import com.polytech.apishop.Repos.articleRepository;
 
+import javax.transaction.Transactional;
+
 @Service
+@Transactional
 public class articleServiceImpl implements articleService {
     
     @Autowired

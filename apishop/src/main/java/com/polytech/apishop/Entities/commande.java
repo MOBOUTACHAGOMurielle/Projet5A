@@ -1,5 +1,6 @@
 package com.polytech.apishop.Entities;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -17,22 +18,26 @@ public class commande {
     private boolean etat_commande;
     private float prix_commande;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", referencedColumnName = "id")
-    private utilisateur utilisateur;
+//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+//    @JoinColumn(name = "id", referencedColumnName = "id")
+//    private utilisateur utilisateur;
 
     @OneToMany
-    private List<ligneCommande> ligneCommandes;
+    private List<ligneCommande> ligneCommandes = new ArrayList<ligneCommande>();
 
     public commande(){
 
     }
 
-    public commande(Date date_commande, boolean etat_commande, float prix_commande, utilisateur utilisateur){
+    public void addlineToComand (ligneCommande line) {
+        this.ligneCommandes.add(line);
+        this.prix_commande += line.getPrix();
+    }
+
+    public commande(Date date_commande, boolean etat_commande, float prix_commande){
         this.date_commande = date_commande;
         this.etat_commande = etat_commande;
         this.prix_commande = prix_commande;
-        this.utilisateur = utilisateur;
     }
 
     public Integer getId_commande() {
@@ -68,11 +73,11 @@ public class commande {
         this.prix_commande = prix_commande;
     }
 
-    public utilisateur getUtilisateur() {
-        return this.utilisateur;
-    }
-
-    public void setUtilisateur(utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
-    }
+//    public utilisateur getUtilisateur() {
+//        return this.utilisateur;
+//    }
+//
+//    public void setUtilisateur(utilisateur utilisateur) {
+//        this.utilisateur = utilisateur;
+//    }
 }

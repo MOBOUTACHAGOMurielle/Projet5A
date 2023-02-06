@@ -9,5 +9,7 @@ import com.polytech.apishop.Entities.panier;
 @Repository
 public interface panierRepository extends JpaRepository<panier,Integer> {
 
+    //panier findById_panier(Integer id);
+
     
 }
