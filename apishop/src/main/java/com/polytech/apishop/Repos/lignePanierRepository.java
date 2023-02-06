@@ -7,5 +7,5 @@ import com.polytech.apishop.Entities.lignePanier;
 
 @Repository
 public interface lignePanierRepository extends JpaRepository<lignePanier,Integer>{
-//    lignePanier findByI
+    //lignePanier findById_lignePanier(Integer id);
 }

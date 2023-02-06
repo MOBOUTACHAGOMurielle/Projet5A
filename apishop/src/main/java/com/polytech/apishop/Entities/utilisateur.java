@@ -35,8 +35,8 @@ public class utilisateur {
     private Collection<role> authorities = new ArrayList<>();
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private panier panier;
-    @OneToMany(mappedBy = "utilisateur")
-    private List<commande> commande;
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private List<commande> commandes;
 
     private boolean isActive;
     private boolean isNotLocked;
@@ -50,9 +50,13 @@ public class utilisateur {
         this.date_creation_compte = date_creation_compte;
         this.authorities = authorities;
         this.panier = panier;
-        this.commande = commande;
+        this.commandes = commande;
     }
 
     public utilisateur(Integer integer, String username, String password, String borne, String christine, String mail, Object dateCreationCompte, ArrayList<role> authorities, Object panier, Object commande) {
+    }
+
+    public void addCommand (commande cmd) {
+        this.commandes.add(cmd);
     }
 }

@@ -19,7 +19,8 @@ public class article {
     @Column(nullable = false)
     private int quantite_stock;
     private String image;
-    
+
+
     @ManyToOne
     @JoinColumn(name = "id_categories", referencedColumnName = "id_categories")
     private categories categories;

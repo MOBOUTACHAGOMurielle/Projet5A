@@ -1,15 +1,12 @@
 package com.polytech.apishop.Controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.polytech.apishop.Entities.lignePanier;
 import com.polytech.apishop.Entities.panier;
@@ -39,4 +36,22 @@ public class panierController {
         
         return new ResponseEntity<>(panierResp.save(panierServ.ajoutArticle(testpanierpresent,lignePanier)), HttpStatus.OK);
     }
+
+    @GetMapping("/add/article/{article_id}/{quantite}/{panier_id}")
+    public ResponseEntity<panier> addArticlePanier(@PathVariable(value = "article_id") Integer articleid, @PathVariable(value = "quantite") Integer qtite, @PathVariable(value = "panier_id") Integer panierid){
+        return new ResponseEntity<>( panierServ.addarticleToPanier(articleid,qtite,panierid) , HttpStatus.OK);
+  }
+
+  @GetMapping("/list")
+  public ResponseEntity<List<panier>> getAll() {
+        return  new ResponseEntity<>(panierServ.getAll(), HttpStatus.OK);
+  }
+
+    @GetMapping("/update/line/{ligne_id}/{quantite}")
+    public ResponseEntity<lignePanier> updateQtiteArticlePanier(@PathVariable(value = "ligne_id") Integer ligneid, @PathVariable(value = "quantite") Integer qtite) {
+        return new ResponseEntity<>( panierServ.updatePanier(ligneid,qtite) , HttpStatus.OK);
+    }
+
+
+
 }
