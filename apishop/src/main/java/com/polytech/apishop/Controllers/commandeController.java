@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/commande")
+@RequestMapping("/api/commande")
 public class commandeController {
 
     private final CommandeService commandeService;
@@ -23,5 +23,10 @@ public class commandeController {
     @GetMapping("/{userid}")
     public ResponseEntity<commande> create(@PathVariable(value = "userid") int userid) {
         return new ResponseEntity<>(commandeService.createCommandFromUser(userid), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/validate/{id}")
+    public ResponseEntity<Boolean> create(@PathVariable(value = "id") Integer cmdid) {
+        return new ResponseEntity<>(commandeService.validateCommande(cmdid), HttpStatus.OK);
     }
 }

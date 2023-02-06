@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean() );
         customAuthenticationFilter.setFilterProcessesUrl("/api/login");
-        http.authorizeRequests().antMatchers( "/api/login/**", "/api/token/refresh/**","/api/user/save/**", "/api/commande/**","/actuator/**","/swagger-ui/**", "/v3/api-docs/**").permitAll();
+        http.authorizeRequests().antMatchers( "/api/login/**", "/api/token/refresh/**","/api/user/save/**", "/actuator/**","/swagger-ui/**", "/v3/api-docs/**").permitAll();
         http.csrf().disable().cors();//Desactivation de la protection csrf
         http.sessionManagement().sessionCreationPolicy(STATELESS);//On rend les session stateless
 

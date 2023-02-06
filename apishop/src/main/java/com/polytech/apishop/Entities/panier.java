@@ -14,7 +14,7 @@ public class panier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_panier;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany
     private List<lignePanier> lignePanier = new ArrayList<lignePanier>();
     
     private float prix_total=0;
