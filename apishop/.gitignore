@@ -37,5 +37,6 @@ out/
 ### VS Code ###
 .vscode/
 /build/
-build
+build/
+/src/main/resources/application.yml
 /build/classes/java/main/com/polytech/apishop/Services/utilisateurService.class
