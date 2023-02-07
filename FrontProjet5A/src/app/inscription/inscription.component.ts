@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { AuthenticationService } from '../auth/auth.service/auth.service';
 import { ToastService } from '../notification/services/toast.service';
 import { CustomValidators } from './customvalidator';
 import { UserForm } from './userform';
@@ -26,7 +27,7 @@ export class InscriptionComponent implements OnInit {
   });
 
 
-  constructor(private router: Router, private http: HttpClient,private toastService: ToastService,private formBuilder: FormBuilder){
+  constructor(private router: Router, private http: HttpClient,private toastService: ToastService,private formBuilder: FormBuilder, public authService:AuthenticationService){
 
   }
 
@@ -82,27 +83,10 @@ export class InscriptionComponent implements OnInit {
       return;
     }
 
-
-    const userstr = JSON.stringify(this.form.value, null, 2);
-    const user = JSON.parse(userstr);
-
-  
-    console.log(user)
-
-    this.http.post(environment.host + "/api/user/save",
-    user
-    ).subscribe({
-      next: (response) => {
-        this.toastService.showSuccessToast("Inscription status","User creation successful");
-        this.router.navigate(["connexion"]);
-      },
-      error: (err) => {
-        this.toastService.showErrorToast("Inscription status",err.error.message);
-        console.error(err)
-      },
-      complete: () => console.info('Login complete')
-    });
+    else{
+      this.authService.register(this.form);
+    }
   }
 
- 
+
 }
