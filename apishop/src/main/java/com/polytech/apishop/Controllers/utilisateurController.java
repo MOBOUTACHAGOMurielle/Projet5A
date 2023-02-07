@@ -44,6 +44,11 @@ public class utilisateurController {
         return  ResponseEntity.ok().body(userService.getUsers());
     }
 
+    @GetMapping("/{username}")
+    public ResponseEntity<utilisateur> getUser(@PathVariable String username){
+        return  ResponseEntity.ok().body(userService.getUser(username));
+    }
+
 
 
     @PostMapping("/save")

@@ -51,6 +51,7 @@ import { CommandeComponent } from './commandes/commande/commande.component';
 import { GestionCommandeComponent } from './back_office/gestion.commande/gestion.commande.component';
 import { FooterComponent } from './footer/footer.component';
 import { GuideDesTaillesComponent } from './guide-des-tailles/guide-des-tailles.component';
+import { AuthenticationGuard } from './auth/auth.guard/authentication.guard';
 @NgModule({
   declarations: [
     ConnexionComponent,
@@ -122,7 +123,7 @@ import { GuideDesTaillesComponent } from './guide-des-tailles/guide-des-tailles.
       { path: 'formulaire-article', component: FormulaireArticleComponent},
       { path : "connexion", component : ConnexionComponent},
       { path : "inscription", component : InscriptionComponent} ,
-      { path : "commande/:id", component : CommandeComponent} ,
+      { path : "commande", component : CommandeComponent, canActivate: [AuthenticationGuard]} ,
       { path : "gestion/commande", component : GestionCommandeComponent} ,
       { path: 'panier', component: PanierComponent},
       { path: 'guide-des-tailles', component: GuideDesTaillesComponent},

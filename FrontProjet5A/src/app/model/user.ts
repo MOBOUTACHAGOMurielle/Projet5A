@@ -12,8 +12,8 @@ export class User {
     private  email: string;
     private  date_creation_compte: Date;
     private  authorities! : role[];
-    private  panier!: panier;
-    private  commande! : commande;
+    public  panier!: panier;
+    public  commandes! : commande[];
 
     constructor () {
         this.id = 0;
