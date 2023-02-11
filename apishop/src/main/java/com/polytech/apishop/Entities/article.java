@@ -15,6 +15,7 @@ public class article {
     private String name;
     private String description;
     private float prix;
+    private Integer note;
     private String taille;
     @Column(nullable = false)
     private int quantite_stock;
@@ -31,7 +32,7 @@ public class article {
 
     }
 
-    public article(String name, String description, float prix, String taille, int quantite_stock, String image, categories categories, List<commentaire> commentaire) {
+    public article(String name, String description, float prix, String taille, int quantite_stock, int note,String image, categories categories, List<commentaire> commentaire) {
         this.name = name;
         this.description = description;
         this.prix = prix;
@@ -40,6 +41,18 @@ public class article {
         this.image = image;
         this.categories = categories;
         this.commentaire = commentaire;
+        this.note = note;
+    }
+
+    public article(String name, String description, float prix, String taille, int quantite_stock, int note, categories categories, List<commentaire> commentaire) {
+        this.name = name;
+        this.description = description;
+        this.prix = prix;
+        this.taille = taille;
+        this.quantite_stock = quantite_stock;
+        this.categories = categories;
+        this.commentaire = commentaire;
+        this.note = note;
     }
 
     public Integer getId_article() {
@@ -72,6 +85,14 @@ public class article {
 
     public void setPrix(float prix) {
         this.prix = prix;
+    }
+
+    public Integer getNote() {
+        return note;
+    }
+
+    public void setNote(Integer note) {
+        this.note = note;
     }
 
     public String getTaille() {

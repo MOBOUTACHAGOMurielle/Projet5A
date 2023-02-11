@@ -21,10 +21,15 @@ public class categorieServiceImpl implements categorieService{
         return listeArticle;
     }
 
-    public void addCategorie(String nom, String description){
+    public void addCategorie(String nom, String description, String image){
         
-        categories _categorie = new categories(nom,description);
+        categories _categorie = new categories(nom,description, image);
         categorieRep.save(_categorie);
 
+    }
+
+    public categories getCategorie(String nom) {
+        categories _categorie = categorieRep.findByNom(nom);
+        return _categorie;
     }
 }

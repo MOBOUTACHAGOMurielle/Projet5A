@@ -14,8 +14,8 @@ public class panier {
     private Integer id_panier;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<lignePanier> lignePanier; 
-    
+    private List<lignePanier> lignePanier;
+
     private float prix_total=0;
 
     public panier(){

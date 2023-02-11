@@ -17,17 +17,16 @@ public class categories {
 
     private String description;
 
-    @OneToMany(mappedBy = "categories")
-    private List<article> article;
-
+    private String image;
 
     public categories(){
 
     }
 
-    public categories(String nom, String description){
+    public categories(String nom, String description, String image){
         this.nom = nom;
         this.description = description;
+        this.image = image;
     }
     
     public Integer getId_categories() {
@@ -42,6 +41,14 @@ public class categories {
         return this.nom;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -52,14 +59,6 @@ public class categories {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public List<article> getArticle() {
-        return this.article;
-    }
-
-    public void setArticle(List<article> article) {
-        this.article = article;
     }
 
 }
