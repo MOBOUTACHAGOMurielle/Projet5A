@@ -1,73 +1,67 @@
 [
     {
-        "id_article": 19, 
-        "name": "polo à motif", 
-        "image": "assets/poloAmotif.webp", 
-        "description": "poche", 
-        "prix": 27, 
-        "taille": "M", 
-        "note": 3, 
-        "quantite": 10,
-        "image_url": ""
+        "id_article": 19,
+        "name": "polo à motif",
+        "image": "assets/poloAmotif.webp",
+        "description": "poche",
+        "prix": 27,
+        "taille": "M",
+        "note": 3,
+        "quantite_stock": 10
     },
 
     {
-        "id_article": 20, 
-        "name": "polo avec col", 
-        "image": "assets/poloAvecCol.webp", 
-        "description": "sans poche", 
-        "prix": 28, 
-        "taille": "L", 
-        "note": 5, 
-        "quantite": 10,
-        "image_url": ""
+        "id_article": 20,
+        "name": "polo avec col",
+        "image": "assets/poloAvecCol.webp",
+        "description": "sans poche",
+        "prix": 28,
+        "taille": "L",
+        "note": 5,
+        "quantite_stock": 10
     },
 
     {
-        "id_article": 21, 
-        "name": "polo coloré", 
-        "image": "assets/poloColoré.webp", 
-        "description": "poche", 
-        "prix": 30, 
-        "taille": "S", 
-        "note": 3, 
-        "quantite": 10,
-        "image_url": "" 
+        "id_article": 21,
+        "name": "polo coloré",
+        "image": "assets/poloColoré.webp",
+        "description": "poche",
+        "prix": 30,
+        "taille": "S",
+        "note": 3,
+        "quantite_stock": 10
     },
 
     {
-        "id_article": 22, 
-        "name": "polo Imprimé", 
-        "image": "assets/poloImprimé.webp", 
-        "description": "sans poche", 
-        "prix": 25, 
-        "taille": "XL", 
-        "note": 4, 
-        "quantite": 10,
-        "image_url": ""
+        "id_article": 22,
+        "name": "polo Imprimé",
+        "image": "assets/poloImprimé.webp",
+        "description": "sans poche",
+        "prix": 25,
+        "taille": "XL",
+        "note": 4,
+        "quantite_stock": 10
     },
 
     {
-        "id_article": 23, 
-        "name": "polo Rayé", 
-        "image": "assets/poloRayé.webp", 
-        "description": "sans poche", 
-        "prix": 26, 
-        "taille": "S", 
-        "note": 5, 
-        "quantite": 10,
-        "image_url": "" 
+        "id_article": 23,
+        "name": "polo Rayé",
+        "image": "assets/poloRayé.webp",
+        "description": "sans poche",
+        "prix": 26,
+        "taille": "S",
+        "note": 5,
+        "quantite_stock": 10
     },
-    
+
     {
-        "id_article": 24, 
-        "name": "polo avec Rayure", 
-        "image": "assets/poloRayure.webp", 
-        "description": "poche", 
-        "prix": 27, 
-        "taille": "M", 
-        "note": 4.5, 
-        "quantite": 10,
-        "image_url": "" 
+        "id_article": 24,
+        "name": "polo avec Rayure",
+        "image": "assets/poloRayure.webp",
+        "description": "poche",
+        "prix": 27,
+        "taille": "M",
+        "note": 4.5,
+        "quantite_stock": 10
     }
 ]

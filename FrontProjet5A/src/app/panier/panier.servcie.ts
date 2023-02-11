@@ -55,21 +55,21 @@ export class panierService {
 
     // const articlestr = JSON.stringify(product,null,2);
     //   const articleJson = JSON.parse(articlestr);
-  
+
     //   this.http.post(`${this.PANIER_API_URL}/panier/ajouter/${id}`, articleJson).subscribe({
-    //     error: (err) => {  
-    //       console.error(err) 
+    //     error: (err) => {
+    //       console.error(err)
     //     },
-  
+
     //     complete: () => console.info('save successful')
-  
+
     //   });
   }
 
   getTotalPrice() : number{
     let grandTotal = 0;
     this.cartItemList.map((a:any)=>{
-      grandTotal += a.prix*a.quantite;
+      grandTotal += a.prix*a.quantite_stock;
     })
     return grandTotal;
   }

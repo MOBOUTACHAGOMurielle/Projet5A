@@ -25,18 +25,16 @@ export class ManteauComponent implements OnInit {
   listeManteau: article[] = [];
 
   ngOnInit(): void {
-    this.manteauService.getManteau().subscribe({
-      next: listeManteau => {
+    this.manteauService.getManteau().subscribe(
+      (listeManteau : article []) => {
         this.listeManteau = listeManteau;
       },
-
-      error: err => this.errMsg = err
-    });
+    );
 
     this.panierService.search.subscribe((val:any)=>{
       this.searchKey = val;
     })
-  }  
+  }
 
   addArticle(){
     this.modifierArticleForm.initializeArticleFormGroup();

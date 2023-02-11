@@ -1,13 +1,19 @@
 .trois{
-    padding: 30px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
-  
+
 .example-card {
-    max-width: 200px;
-    max-height: 600px;
-    background-color: #A77E7E;
+max-width: 200px;
+min-width: 80px;
+max-height: 600px;
+background-color: #A77E7E;
 }
-  
+
 .example-header-image {
 background-size: cover;
 }
@@ -28,14 +34,14 @@ background-size: cover;
     max-width: 100%;
     height: 60px;
   }
-   
+
   .messagedefilant div {
     position: absolute;
     min-width: 100%; /* au minimum la largeur du conteneur */
     color: chocolate;
   }
-   
-  .messagedefilant div span, 
+
+  .messagedefilant div span,
   .messagedefilant div:after {
     position: relative;
     display: inline-block;
@@ -43,23 +49,23 @@ background-size: cover;
     white-space: nowrap;
     top:0;
   }
-   
+
   .messagedefilant div span {
     animation: defilement 10s infinite linear;
   }
-   
+
   .messagedefilant div:after {
     position: absolute;
     top:0; left:0;
     content:attr(data-text);
     animation: defilement2 10s infinite linear;
   }
-   
+
   @keyframes defilement {
     0% { margin-left: 0; }
     100% { margin-left: -100%; }
   }
-   
+
   @keyframes defilement2 {
     0% { margin-left: 100%; }
     100% { margin-left: 0%; }
@@ -72,15 +78,15 @@ background-size: cover;
     justify-content: center;
     font-size: 1.5em;
   }
-  
+
   .trait1 {
     margin-right: 20px;
   }
-  
+
   .trait2 {
     margin-left: 20px;
   }
-  
+
   .trait1, .trait2 {
     margin-top: 1.2%;
     margin-bottom: 50px;
@@ -89,7 +95,7 @@ background-size: cover;
     background-color: gray;
     border-radius: 0.1em;
   }
-  
+
   .art-banner {
     margin-top: 40px;
     background-color: lightgrey;
@@ -98,7 +104,7 @@ background-size: cover;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 20px;
   }
-  
+
   .banner-text {
     color: black;
     padding: 30px;
@@ -106,7 +112,7 @@ background-size: cover;
     line-height: 1.7;
     overflow: auto;
   }
-  
+
   .add {
     margin-left: 87%;
     color: black;

@@ -1,30 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { categorie } from '../categories';
+import { categorieService } from './nav.service';
+import { panierService } from '../panier/panier.servcie';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
+  // isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  //   .pipe(
+  //     map(result => result.matches),
+  //     shareReplay()
+  //   );
+
+  constructor(private breakpointObserver: BreakpointObserver,
+    private categorieService: categorieService,
+    private panierService: panierService) {}
+
+  listeCategories: categorie[] = [];
+  searchKey:string= " ";
+
+  ngOnInit() {
+    this.categorieService.getCategories().subscribe(
+      (liste : categorie []) => {
+        this.listeCategories = liste;
+      },
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+    this.panierService.search.subscribe((val:any)=>{
+      this.searchKey = val;
+    })
+  }
 
-  listeCategories: categorie[] = [
-    {id:25, name:"Jean", image:"assets/jeans.jpg", description: "Achetez vos jeans 100% coton"},
-    {id:26, name:"Manteau", image:"assets/manteau.jpg", description: "Soyey prêts pour l'hiver avec nos manteaux vapeurs"},
-    {id:27, name:"Tee-Shirt", image:"assets/teeshirt.webp", description: "Découvrez nos tee-shirt ecologique pour sauver la planète"},
-    {id:28, name:"Accessoires", image:"assets/montre.jfif", description: "Venez découvir nos accessoires"}
-  ];
-
-  isPresent:boolean = false;
+  //isPresent:boolean = false;
 }

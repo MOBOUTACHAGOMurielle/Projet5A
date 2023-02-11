@@ -5,7 +5,7 @@
     <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
   </mat-toolbar>
   <form [formGroup]="articleService.form" class="normal-form" (submit)="onSubmit()">
-    <mat-grid-list cols="1" rowHeight="400px">
+    <mat-grid-list cols="1" rowHeight="600px">
       <mat-grid-tile>
         <div class="controles-container">
           <input type="hidden" formControlName="id_article">
@@ -14,22 +14,33 @@
             <mat-error>Ce champ est obligatoire</mat-error>
           </mat-form-field>
           <mat-form-field>
-            <input formControlName="prix" matInput placeholder="Adresse*" class="show">
+            <input formControlName="prix" matInput placeholder="Prix*" class="show">
             <mat-error>Ce champ est obligatoire</mat-error>
           </mat-form-field>
           <mat-form-field >
-            <input formControlName="taille" matInput placeholder="code postale*">
+            <input formControlName="taille" matInput placeholder="Taille*">
             <mat-error>Ce champ est obligatoire</mat-error>
           </mat-form-field>
           <mat-form-field>
-            <input formControlName="quantite" matInput placeholder="ville*">
+            <input formControlName="quantite_stock" matInput placeholder="Quantite en stock*">
           </mat-form-field>
-          <mat-form-field appearance="outline">
+          <mat-form-field>
+            <input formControlName="note" matInput placeholder="note de l'article*">
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="categories" matInput placeholder="Catégorie de l'article">
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="description" matInput placeholder="description*">
+          </mat-form-field>
+          <input type="file" id="userFile" (change)="onSelectFile($event)" #fileInput style="display: none">
+          <mat-form-field appearance="outline" show>
             <div class="url_image">
-              <mat-icon> attach_file</mat-icon>
-              <input type="text" formControlName="image_url" matInput>
+              <mat-icon  (click)="selectFile()"> attach_file</mat-icon>
+              <input type="text" formControlName="image" matInput readonly>
+              <!-- <mat-icon (click)="sendFile()">send</mat-icon> -->
             </div>
-          </mat-form-field>   
+          </mat-form-field>
           <div class="button-row">
             <button mat-raised-button color="warn" type="submit">Submit</button>
             <button mat-raised-button color="warn" (click)="onClear()">Clear</button>

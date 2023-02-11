@@ -1,28 +1,32 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { article } from "../article";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { HttpErrorResponse } from "@angular/common/http";
 import { throwError } from "rxjs";
 import { environment } from "src/environments/environment";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { categorie } from "../categories";
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class jeanService {
+export class categorieService {
 
-    private readonly JEAN_API_URL = environment.host;
+    private readonly CATEGORIES_API_URL = environment.host;
 
+    public search = new BehaviorSubject<string>("");
+    
     constructor(private http: HttpClient){}
 
-    public getJean(): Observable<article[]> {
-      return this.http.get<article[]>(`${this.JEAN_API_URL}/article/categories/Jean`).pipe(
-        tap(unJean => console.log('jean: ', unJean)),
-        catchError(this.handleError)
-    );
-  }
+    public getCategories(): Observable<categorie[]> {
+        return this.http.get<categorie[]>(`${this.CATEGORIES_API_URL}/article/categorie/liste`).pipe(
+          tap(categorie => console.log('categories: ', categorie)),
+          catchError(this.handleError)
+      );
+    }
 
     private handleError(error: HttpErrorResponse) {
         if (error.status === 0) {

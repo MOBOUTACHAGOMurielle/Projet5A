@@ -1,42 +1,4 @@
-<!-- <div class="parent">
-    <div class="item1">
-      <img src={{manteau.image}} class="photo-example" height="600px" width="500px">
-    </div>
-    <div class="item2">
-      <div class ="nameAndPrice"> 
-        <div id="sidebar" style="font-weight:bold">{{manteau.name}}</div>
-      </div>
-      <div id="sidebar" style="font-weight:bold">{{manteau.prix}}</div>
-      <div id="sidebar">
-        <p style="font-weight:bold">Description de l'article</p>
-        {{manteau.description}}
-      </div>
-      <div>
-        <div id="sidebar" style="font-weight:bold">Quantité en stock</div>
-        <div id="sidebar">{{manteau.quantite}}</div>
-      </div>
-      <div id="sidebar">Taille(FR)
-        <div> 
-          <mat-button-toggle name="favoriteColor" aria-label="Favorite Color" value="Taille">
-            {{manteau.taille}}
-          </mat-button-toggle>
-        </div>
-      </div>
-      <div class="mesure">
-        <div>
-          <mat-icon>straighten</mat-icon>
-        </div>
-        <div>Guide des tailles</div>
-      </div>
-      <div class="add">
-        <button mat-mini-fab>
-          <mat-icon (click)="addToCart(manteau)">add</mat-icon>
-        </button>
-        <div style="font-weight:bold">Ajouter au panier</div>
-      </div>
-    </div>
-  </div> -->
-  <div class="responsive-example-photo">
+<div class="responsive-example-photo">
     <div class="responsive-item-detail-photo">
       <img src={{manteau.image}} class="photo-example" height="600px" width="500px">
     </div>
@@ -74,7 +36,7 @@
       </div>
       <div>
         Quantité en stock
-        <p>{{manteau.quantite}}</p>
+        <p>{{manteau.quantite_stock}}</p>
       </div>
       <div class="tiret">
         ----------------------------------------------------------------
@@ -113,7 +75,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="responsive-example">
     <div class="responsive-item">
       <p>Heloïse</p>
@@ -155,7 +117,7 @@
   </div>
 
   <div class="art-banner" id="art-banner">
-   <!--  <div class="end">
+   <div class="end">
       <div class="info">
         <p> Information sur l'entreprise</p>
       </div>
@@ -168,7 +130,7 @@
       <div class="info">
         Trouvez-nous sur
       </div>
-    </div> -->
+    </div>
     <div class="banner-text">Hello there.</div>
     <div class="badge">
       <p>Suivez nous!

@@ -48,20 +48,20 @@ export class PanierComponent implements OnInit {
   removeItem(item: any){
     this.panierService.removeCartItem(item);
   }
-  
+
   emptycart(){
     this.panierService.removeAllCart();
   }
 
   inc(element:any) {
-    if(element.quantite != 11){
-      element.quantite += 1;
+    if(element.quantite_stock != 11){
+      element.quantite_stock += 1;
     }
   }
 
   dec(element:any) {
-    if(element.quantite != 1){
-      element.quantite -= 1;
+    if(element.quantite_stock != 1){
+      element.quantite_stock -= 1;
     }
   }
 

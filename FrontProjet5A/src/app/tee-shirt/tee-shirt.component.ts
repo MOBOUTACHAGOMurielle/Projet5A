@@ -25,13 +25,11 @@ export class TeeShirtComponent implements OnInit {
   listeTeeShirt: article[] = [];
 
   ngOnInit(): void {
-    this.teeShirtService.getTeeShirt().subscribe({
-      next: listeTeeShirt => {
+    this.teeShirtService.getTeeShirt().subscribe(
+      (listeTeeShirt : article []) => {
         this.listeTeeShirt = listeTeeShirt;
       },
-
-      error: err => this.errMsg = err
-    });
+    );
 
     this.panierService.search.subscribe((val:any)=>{
       this.searchKey = val;

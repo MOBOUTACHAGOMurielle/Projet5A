@@ -54,7 +54,7 @@ import { GuideDesTaillesComponent } from './guide-des-tailles/guide-des-tailles.
 @NgModule({
   declarations: [
     ConnexionComponent,
-    ToastComponent, 
+    ToastComponent,
     ToasterComponent,
     InscriptionComponent,
     AppComponent,
@@ -112,7 +112,7 @@ import { GuideDesTaillesComponent } from './guide-des-tailles/guide-des-tailles.
       { path: 'jean', component: JeanComponent },
       { path: 'manteau', component: ManteauComponent },
       { path: 'tee-shirt', component: TeeShirtComponent },
-      { path: 'accessoires', component: AccessoiresComponent },
+      { path: 'accessoire', component: AccessoiresComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
       { path: 'jean/:id', component: JeanDetailComponent },
