@@ -23,8 +23,7 @@
     </div>
     <div *ngIf="isUserAuthenticated()" id="color" class ="connection" >
       <p  *ngIf="username">Hi {{username}} !</p>
-      <button type="button" class="btn btn-outline-danger" (click)="logOut()">Deconnection</button>
-      <mat-icon >person</mat-icon>
+      <mat-icon (click)="logOut()">launch</mat-icon>
     </div>
 
     <span class="spacer"></span>

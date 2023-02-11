@@ -10,6 +10,8 @@ import com.polytech.apishop.ServiceImpl.categorieServiceImpl;
 
 import com.polytech.apishop.ServiceImpl.utilisateurServiceImpl;
 import com.polytech.apishop.Services.utilisateurService;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 @SpringBootApplication
+@OpenAPIDefinition(info = @Info(title = "MavenAPI", version = "1.0", description = "MaveN Store Backend Application "))
 public class ApishopApplication {
 
 	public static void main(String[] args) {

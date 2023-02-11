@@ -7,26 +7,19 @@
         <mat-divider></mat-divider>
 
 
-        <div class="command_list">
+        <div class="command_list" *ngIf="user.commandes" >
 
-            <mat-card class="card_command">
-                <mat-card-title>Command #648891514</mat-card-title>
-                <mat-card-subtitle>Date : </mat-card-subtitle>
-                <mat-card-subtitle>Prix :</mat-card-subtitle>
-                <mat-card-actions align="end">
-                  <button mat-button><mat-icon>remove_red_eye</mat-icon></button>
-                  <button mat-button><mat-icon>cancel</mat-icon></button>
-                </mat-card-actions>
-            </mat-card>
-    
-            <mat-card  class="card_command">
-                <mat-card-title>Actions Buttons</mat-card-title>
-                <mat-card-subtitle>End</mat-card-subtitle>
-                <mat-card-actions align="end">
-                    <button mat-button><mat-icon>remove_red_eye</mat-icon></button>
-                    <button mat-button><mat-icon>cancel</mat-icon></button>
-                </mat-card-actions>
-            </mat-card>
+            <div *ngFor="let cmd of user.commandes">
+                <mat-card class="card_command" *ngIf="!cmd.etat_commande"  >
+                    <mat-card-title>Command #{{cmd.id_commande}}</mat-card-title>
+                    <mat-card-subtitle>Date : {{cmd.date_commande}} </mat-card-subtitle>
+                    <mat-card-subtitle>Prix : {{cmd.prix_commande}} </mat-card-subtitle>
+                    <mat-card-actions align="end">
+                      <button mat-button><mat-icon>remove_red_eye</mat-icon></button>
+                      <button mat-button><mat-icon>cancel</mat-icon></button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
 
 
         </div>
@@ -34,31 +27,18 @@
         <h2 class="subtitle" >Validated</h2>
         <mat-divider></mat-divider>
 
-        <div class="command_list">
+        <div class="command_list" *ngIf="user.commandes" >
 
-            <mat-card  class="card_command">
-                <mat-card-title>Actions Buttons</mat-card-title>
-                <mat-card-subtitle>End</mat-card-subtitle>
-                <mat-card-actions align="end">
-                    <button mat-button><mat-icon>remove_red_eye</mat-icon></button>
-                </mat-card-actions>
-            </mat-card>
-    
-            <mat-card class="card_command">
-                <mat-card-title>Actions Buttons</mat-card-title>
-                <mat-card-subtitle>End</mat-card-subtitle>
-                <mat-card-actions align="end">
-                    <button mat-button><mat-icon>remove_red_eye</mat-icon></button>
-                </mat-card-actions>
-            </mat-card>
-    
-            <mat-card class="card_command">
-                <mat-card-title>Actions Buttons</mat-card-title>
-                <mat-card-subtitle>End</mat-card-subtitle>
-                <mat-card-actions align="end">
-                    <button mat-button><mat-icon>remove_red_eye</mat-icon></button>
-                </mat-card-actions>
-            </mat-card>
+            <div *ngFor="let cmd of user.commandes">
+                <mat-card class="card_command" *ngIf="cmd.etat_commande"  >
+                    <mat-card-title>Command #{{cmd.id_commande}}</mat-card-title>
+                    <mat-card-subtitle>Date : {{cmd.date_commande}} </mat-card-subtitle>
+                    <mat-card-subtitle>Prix : {{cmd.prix_commande}} </mat-card-subtitle>
+                    <mat-card-actions align="end">
+                      <button mat-button><mat-icon>remove_red_eye</mat-icon></button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
 
 
         </div>

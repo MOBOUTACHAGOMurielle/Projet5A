@@ -5,7 +5,6 @@ HELP.md
 !**/src/test/**/build/
 
 
-/build
 
 ### STS ###
 .apt_generated
@@ -37,4 +36,7 @@ out/
 
 ### VS Code ###
 .vscode/
+/build/
+build/
+/src/main/resources/application.yml
 /build/classes/java/main/com/polytech/apishop/Services/utilisateurService.class

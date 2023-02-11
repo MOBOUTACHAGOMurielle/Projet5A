@@ -12,7 +12,7 @@ public class commande {
     private Integer id_commande;
 
     @Column(nullable = false)
-    private Date date_commande;
+    private String date_commande;
 
     @Column(nullable = false)
     private boolean etat_commande;
@@ -25,16 +25,26 @@ public class commande {
     @OneToMany
     private List<ligneCommande> ligneCommandes = new ArrayList<ligneCommande>();
 
+    public List<ligneCommande> getLigneCommandes() {
+        return ligneCommandes;
+    }
+
+    public void setLigneCommandes(List<ligneCommande> ligneCommandes) {
+        this.ligneCommandes = ligneCommandes;
+    }
+
     public commande(){
 
     }
 
     public void addlineToComand (ligneCommande line) {
-        this.ligneCommandes.add(line);
+        List<ligneCommande> current = this.getLigneCommandes();
+        current.add(line);
+        this.setLigneCommandes(current);
         this.prix_commande += line.getPrix();
     }
 
-    public commande(Date date_commande, boolean etat_commande, float prix_commande){
+    public commande(String date_commande, boolean etat_commande, float prix_commande){
         this.date_commande = date_commande;
         this.etat_commande = etat_commande;
         this.prix_commande = prix_commande;
@@ -49,11 +59,11 @@ public class commande {
     }
 
 
-    public Date getDate_commande() {
+    public String getDate_commande() {
         return this.date_commande;
     }
 
-    public void setDate_commande(Date date_commande) {
+    public void setDate_commande(String date_commande) {
         this.date_commande = date_commande;
     }
 

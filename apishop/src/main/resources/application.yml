@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/apishop
-    username: postgres
-    password: Motamu2000?
+    username: maven
+    password: password
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true

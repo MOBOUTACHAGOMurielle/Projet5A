@@ -4,6 +4,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.polytech.apishop.Entities.form;
 import com.polytech.apishop.Entities.role;
 import com.polytech.apishop.Entities.utilisateur;
 import com.polytech.apishop.Services.utilisateurService;
@@ -11,12 +12,15 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -26,14 +30,43 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class utilisateurController {
 
-    private AuthenticationManager authenticationManager;
     private final utilisateurService userService;
 
     public utilisateurController(utilisateurService userService) {
         this.userService = userService;
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<utilisateur>> getUsers(){
+        return  ResponseEntity.ok().body(userService.getUsers());
+    }
+
+    @GetMapping("/{username}")
+    public ResponseEntity<utilisateur> getUser(@PathVariable String username){
+        return  ResponseEntity.ok().body(userService.getUser(username));
+    }
+
+
+
+    @PostMapping("/save")
+    public ResponseEntity<utilisateur> saveUser(@RequestBody utilisateur user){
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/user/save").toUriString());
+        return  ResponseEntity.created(uri).body(userService.save(user));
+    }
+
+    @PostMapping("/role/save")
+    public ResponseEntity<role> saveRole(@RequestBody role role){
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/user/role/save").toUriString());
+        return  ResponseEntity.created(uri).body(userService.saveRole(role));
+    }
+
+    @PostMapping("/role/addtouser")
+    public ResponseEntity<?> addRoleToUser(@RequestBody form form){
+        userService.addRoleToUSer(form.getUsername(), form.getRolename());
+        return  ResponseEntity.ok().build();
     }
 
 

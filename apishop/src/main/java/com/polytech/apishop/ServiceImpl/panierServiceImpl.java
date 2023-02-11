@@ -35,6 +35,7 @@ public class panierServiceImpl implements panierService{
     public lignePanier updatePanier (Integer lpanier_id, int quantite) {
         lignePanier lpanier= lignePanierRepository.findById(lpanier_id).get();
         lpanier.setQuantite(quantite);
+        lpanier.setPrix(lpanier.getArticle().getPrix() * quantite);
         return lignePanierRepository.save(lpanier);
     }
 
