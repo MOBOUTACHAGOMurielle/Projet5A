@@ -25,13 +25,12 @@ export class AccessoiresComponent implements OnInit {
   listeAccessoires: article[] = [];
 
   ngOnInit(): void {
-    this.accessoireService.getAccessoires().subscribe({
-      next: listeAccessoires => {
+    this.accessoireService.getAccessoires().subscribe(
+      (listeAccessoires : article []) => {
         this.listeAccessoires = listeAccessoires;
       },
+    );
 
-      error: err => this.errMsg = err
-    });
 
     this.panierService.search.subscribe((val:any)=>{
       this.searchKey = val;

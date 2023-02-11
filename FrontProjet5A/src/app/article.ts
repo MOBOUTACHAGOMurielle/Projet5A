@@ -1,3 +1,4 @@
+import { categorie } from "./categories";
 export interface article {
     id_article: number;
     name: string;
@@ -6,7 +7,7 @@ export interface article {
     prix: number;
     taille: string;
     note: number;
-    image_url: string;
     //commentaire: string;
-    quantite: number;
+    categories: categorie;
+    quantite_stock: number;
 }

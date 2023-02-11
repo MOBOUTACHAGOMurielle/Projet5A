@@ -8,7 +8,7 @@
             <p class="texte">Oh!oh!oh!!!</p>
             <p class="texte">Le père Noël arrive!</p>
             <p class="texte">Venez vite découvrir nos offres de noël</p>
-        </div> 
+        </div>
      </div>
 
      <div class="recommandés">
@@ -25,12 +25,12 @@
                         {{acategorie.description}}
                     </p>
                     <button mat-mini-fab>
-                        <mat-icon routerLink="/{{acategorie.name|lowercase}}">keyboard_arrow_right</mat-icon>
+                        <mat-icon routerLink="/{{acategorie.nom|lowercase}}">keyboard_arrow_right</mat-icon>
                     </button>
                 </div>
             </mat-card-content>
         </mat-card>
-    </div> 
+    </div>
 
     <div class="recommandés">
         <div class="trait1"></div>
@@ -47,17 +47,17 @@
                 <div>
                     <p class="soldes1">Tout à</p>
                     <p class="soldes2">-50%</p>
-                </div> 
+                </div>
             </mat-card-content>
         </mat-card>
         <mat-card class="nouveaute">
             <mat-card-content>
                 <div>
                     <p id="nouveau">Nouveautés</p>
-                </div> 
+                </div>
             </mat-card-content>
         </mat-card>
-     </div>    
+     </div>
 </section>
 <mat-paginator [length]="20" [pageSizeOptions]="[4, 8, 12]" aria-label="Select page">
 </mat-paginator>

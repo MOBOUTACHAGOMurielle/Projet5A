@@ -1,61 +1,70 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  font-family: sans-serif;
-  font-size: 1rem;
-}
-
-.click {
-  padding: 20px;
-  text-align: center;
-}
-
-.parent {
-  padding: 100px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px;
-}
-
-.item1, .item2 {
-  background-color:#FAFAFA;
-  padding: 30px;
-  font-size: 0.77rem;
-  line-height: 1.7;
-}
-
-.item2:nth-child(2) {
-    font-size: 1.1rem;
-    grid-row: span 25;
-    grid-column: span 1;
-    display: grid;
-}
-
 .mesure {
   grid-template-columns: 1fr 8fr;
   display: grid;
+  margin: 20px auto 0px;
 }
 
-.nameAndPrice {
-  grid-template-columns: 1fr 2fr;
+.responsive-example-photo{
+  max-width: 1100px;
+  margin: 60px auto;
   display: grid;
+  grid-template-columns: 2.5fr 1.5fr;
+  gap: 30px;
 }
 
-.add {
-  grid-template-columns: 1fr 6fr;
-  display: grid;
+.responsive-item-detail, .responsive-item-detail-photo{
+  background-color:white;
+  padding: 30px;
+  color: black;
+  font-size: 1.2rem;
+  line-height: 1.7em;
+  overflow: auto;
+  height: 700px;
 }
 
-.item1:nth-child(1) {
-  font-size: 1.1rem;
-  grid-row: span 25;
-  grid-column: span 2;
-  display: grid;
-  align-content: center;
+.special{
+  background-color: ivory;
+  color:burlywood;
+  width: 150px;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 5%;
+}
+
+.prix {
+ font-size: 2em;
+ font-family: cursive;
+ color: crimson;
+ display: grid;
+ grid-template-columns: 0.1fr 0.1fr 0.1fr;
+}
+
+.initial {
+  color: black;
+  font-size: 0.7em;
+  opacity: 0.5;
+  margin:-5px 5px;
+  text-decoration : line-through;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.reduc {
+  color: white;
+  font-size: 0.7em;
+  text-align: center;
+  background-color: black;
+  font-family: 'Courier New', Courier, monospace;
+  height: 30px;
+
+}
+
+.responsive-item-detail-photo {
+  background-size : cover;
+}
+
+ .tiret {
+  opacity: 0.2;
+  margin: 20px auto 15px;
 }
 
 #sidebar, .mesure, .add{
@@ -202,12 +211,14 @@ body {
   overflow: auto;
 }
 
-/* .art-banner-bg {
-  opacity: 0.15;
-  background-size: cover;
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
-} */
+.taille {
+  background-color: #A77E7E;
+}
+
+.tailleTab {
+  background-color: #fff;
+  color: black;
+}
 
 .banner-text {
   color: #fff;
@@ -256,4 +267,19 @@ body {
   border-left: 5px solid rgb(255, 41, 123);
   grid-column: 2;
   grid-row: 4;
+}
+
+.example-button-row{
+  margin: 70px auto;
+  width: 6cm;
+}
+
+.commande {
+  width: 6cm;
+  height: 1.5cm;
+  background-color: #A77E7E;
+}
+
+#commentaire {
+  color: black;
 }

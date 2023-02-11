@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { article } from '../article';
+import { categorie } from '../categories';
 import { FormulaireArticleComponent } from '../formulaire-article/formulaire-article.component';
 import { articleService } from '../formulaire-article/formulaire-article.service';
 import { panierService } from '../panier/panier.servcie';
@@ -16,6 +17,7 @@ export class JeanComponent implements OnInit {
 
   public errMsg: string | undefined;
   searchKey:string= " ";
+  selected?: article;
 
   constructor(private jeanService: jeanService,
     private panierService: panierService,
@@ -26,20 +28,11 @@ export class JeanComponent implements OnInit {
   listeJeans: article[] = [];
 
   ngOnInit() {
-    // this.jeanService.getJean().subscribe({
-    //   next: listeJeans => {
-    //     this.listeJeans = listeJeans;
-    //   },
-
-    //   error: err => this.errMsg = err
-    // });
 
     this.jeanService.getJean().subscribe(
       (listeJeans : article []) => {
         this.listeJeans = listeJeans;
       },
-
-      // error: err => this.errMsg = err
     );
 
     this.panierService.search.subscribe((val:any)=>{

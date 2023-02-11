@@ -2,6 +2,7 @@ package com.polytech.apishop.Repos;
 
 import java.util.List;
 
+import com.polytech.apishop.Entities.categories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -21,6 +22,9 @@ public interface articleRepository extends JpaRepository<article,Integer> {
 
 
 //    boolean existsById_article(Integer id);
+
+    List<article> findAllByCategories(categories categorie);
+    //article getArticleById(int id);
 
     @Query("SELECT a.description FROM article a WHERE a.id_article = :id")
     String findDescription(@Param("id") Integer id_article);

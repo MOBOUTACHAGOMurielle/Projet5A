@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { categorie } from '../categories';
 import { panierService } from '../panier/panier.servcie';
-import { dashboardService } from './dashboard.service';
+import { categorieService } from '../nav/nav.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,22 +13,21 @@ export class DashboardComponent implements OnInit {
   public errMsg: string | undefined;
   searchKey:string= " ";
 
-  constructor(private dashboardService: dashboardService,
+  constructor(private categorieService: categorieService,
     private panierService: panierService
     ) { }
 
   listeCategorie: categorie[] = [];
 
-  ngOnInit(): void {
-    this.dashboardService.getCategories().subscribe({
-      next: listeCategorie => {
-        this.listeCategorie = listeCategorie;
+  ngOnInit() {
+    this.categorieService.getCategories().subscribe(
+      (liste : categorie []) => {
+        this.listeCategorie = liste;
       },
-      error: err => this.errMsg = err
-    });
+    );
 
     this.panierService.search.subscribe((val:any)=>{
       this.searchKey = val;
     })
-  }  
+  }
 }

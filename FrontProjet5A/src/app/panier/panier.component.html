@@ -2,7 +2,7 @@
     <div class="item1" *ngIf="products && products.length>0">
        <div class="intro">
         <h2>Resumé des articles</h2>
-       </div> 
+       </div>
        <!-- <div class="item1Child">
         <div>Articles</div>
         <span class="example-spacer"></span>
@@ -33,13 +33,14 @@
             </div>
             <div id="position">{{acategorie.prix}}€</div>
             <div id="position">
-                <mat-icon id="quantité" (click)="inc(acategorie)">add</mat-icon>{{acategorie.quantite}}<mat-icon id="quantité" (click)="dec(acategorie)">remove</mat-icon>
+                <mat-icon id="quantité" (click)="inc(acategorie)">add</mat-icon>{{acategorie.quantite_stock}}<mat-icon id="quantité" (click)="dec(acategorie)">remove</mat-icon>
             </div>
         </div>
         <mat-card-actions align="end">
-          <mat-icon>share</mat-icon>
+            <button mat-button ><mat-icon>check</mat-icon></button>
           <span class="example-spacer-1"></span>
-          <mat-icon (click)="removeItem(acategorie)">delete</mat-icon>
+
+          <button mat-button (click)="removeItem(acategorie)"><mat-icon>cancel</mat-icon></button>
         </mat-card-actions>
       </mat-card>
     </div>

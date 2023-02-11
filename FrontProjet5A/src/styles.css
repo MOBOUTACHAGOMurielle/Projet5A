@@ -5,15 +5,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-dialog-container{
     background-color: #fff;
-    color: #fff
   }
 
   .fill-remaining-space {
-    /* This fills the remaining space, by using flexbox. 
+    /* This fills the remaining space, by using flexbox.
        Every toolbar row uses a flexbox row layout. */
     flex: 1 1 auto;
   }
 
   .bgcolor {
-    background-color: #A77E7E;
+    color: white;
   }

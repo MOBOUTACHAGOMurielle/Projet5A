@@ -55,7 +55,7 @@ import { AuthenticationGuard } from './auth/auth.guard/authentication.guard';
 @NgModule({
   declarations: [
     ConnexionComponent,
-    ToastComponent, 
+    ToastComponent,
     ToasterComponent,
     InscriptionComponent,
     AppComponent,
@@ -113,7 +113,7 @@ import { AuthenticationGuard } from './auth/auth.guard/authentication.guard';
       { path: 'jean', component: JeanComponent },
       { path: 'manteau', component: ManteauComponent },
       { path: 'tee-shirt', component: TeeShirtComponent },
-      { path: 'accessoires', component: AccessoiresComponent },
+      { path: 'accessoire', component: AccessoiresComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
       { path: 'jean/:id', component: JeanDetailComponent },
