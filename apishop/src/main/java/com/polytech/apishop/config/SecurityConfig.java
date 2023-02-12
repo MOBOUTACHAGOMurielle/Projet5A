@@ -37,13 +37,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean() );
         customAuthenticationFilter.setFilterProcessesUrl("/api/login");
-        http.authorizeRequests().antMatchers( "/api/login/**", "/api/user/token/refresh/**","/api/user/save/**", "/actuator/**","/swagger-ui/**", "/v3/api-docs/**").permitAll();
+        http.authorizeRequests().antMatchers( "/api/login/**", "/api/user/token/refresh/**","/api/user/save/**", "/actuator/**","/swagger-ui/**", "/v3/api-docs/**","/article/**","/panier/**").permitAll();
         http.csrf().disable().cors();//Desactivation de la protection csrf
         http.sessionManagement().sessionCreationPolicy(STATELESS);//On rend les session stateless
 
         http.authorizeRequests().antMatchers(GET, "/api/user/**").hasAnyAuthority("ROLE_USER");
 //        http.authorizeRequests().antMatchers(POST, "/api/user/save/**").hasAnyAuthority("ROLE_ADMIN");
-        //http.authorizeRequests().anyRequest().authenticated();
+        http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(customAuthenticationFilter);
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
 

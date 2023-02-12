@@ -15,7 +15,7 @@ import com.polytech.apishop.Services.panierService;
 import com.polytech.apishop.Repos.lignePanierRepository;
 
 @Service
-public class panierServiceImpl implements panierService{
+public class panierServiceImpl implements panierService {
 
     private final lignePanierRepository lignePanierRepository;
     private final articleRepository articleRepos;
@@ -45,8 +45,31 @@ public class panierServiceImpl implements panierService{
 
 
     public panier addarticleToPanier(Integer article_id, int quantite, Integer panier_id) {
+        if(existInPanier(article_id, panier_id)) {
+            panier p = panierRepository.findById(panier_id).get();
+            for(int i=0;i<p.getLignePanier().size();i++) {
+                if(p.getLignePanier().get(i).getArticle().getId_article() == article_id){
+                    lignePanier line = p.getLignePanier().get(i);
+                    p.getLignePanier().remove(line);
+                    line.setQuantite(line.getQuantite() + quantite);
+                    p.getLignePanier().add(line);
+                    return panierRepository.save(p);
+                }
+            }
+        }
         lignePanier line = create_ligne_panier(article_id, quantite);
         return addlineToPanier(line.getId_lignePanier(),panier_id);
+    }
+
+    public boolean existInPanier(Integer article_id, Integer panier_id) {
+        panier p = panierRepository.findById(panier_id).get();
+        boolean test = false;
+        for(lignePanier line : p.getLignePanier()) {
+            if(line.getArticle().getId_article() == article_id) {
+                test = true;
+            }
+        }
+        return test;
     }
 
     public lignePanier create_ligne_panier(Integer article_id, int quantite) {
@@ -74,8 +97,13 @@ public class panierServiceImpl implements panierService{
         return panierRepository.save(panier);
     }
 
-
-
+    public panier deletelineToPanier(Integer lpanier_id,Integer panier_id) {
+        panier panier = panierRepository.findById(panier_id).get();
+        lignePanier lpanier = lignePanierRepository.findById(lpanier_id).get();
+        panier.getLignePanier().remove(lpanier);
+        lignePanierRepository.delete(lpanier);
+        return panierRepository.save(panier);
+    }
 
 
     @Override

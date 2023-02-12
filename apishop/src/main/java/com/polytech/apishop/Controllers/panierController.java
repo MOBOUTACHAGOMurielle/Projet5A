@@ -42,6 +42,11 @@ public class panierController {
         return new ResponseEntity<>( panierServ.addarticleToPanier(articleid,qtite,panierid) , HttpStatus.OK);
   }
 
+    @GetMapping("/delete/article/{lpanier_id}/{panier_id}")
+    public ResponseEntity<panier> deleteArticlePanier(@PathVariable(value = "lpanier_id") Integer lpanierid,@PathVariable(value = "panier_id") Integer panierid){
+        return new ResponseEntity<>( panierServ.deletelineToPanier(lpanierid,panierid) , HttpStatus.OK);
+    }
+
   @GetMapping("/list")
   public ResponseEntity<List<panier>> getAll() {
         return  new ResponseEntity<>(panierServ.getAll(), HttpStatus.OK);

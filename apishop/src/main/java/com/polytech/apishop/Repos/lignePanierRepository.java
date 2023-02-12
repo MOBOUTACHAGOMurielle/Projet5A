@@ -1,5 +1,6 @@
 package com.polytech.apishop.Repos;
 
+import com.polytech.apishop.Entities.article;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
