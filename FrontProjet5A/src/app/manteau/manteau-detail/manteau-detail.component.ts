@@ -34,8 +34,9 @@ export class ManteauDetailComponent implements OnInit {
     })
   }
 
-  addToCart(item:any, id:number){
-    this.panierService.addtoCart(item, id);
+  addToCart(id_a:number, quantite: number){
+    this.panierService.addtoCart(id_a, quantite, this.route);
+    location.reload();
   }
 
   onEdit(element:any){

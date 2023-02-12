@@ -27,7 +27,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EnteteComponent } from './entete/entete.component';
 import { JeanDetailComponent } from './jean/jean-detail/jean-detail.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ManteauDetailComponent } from './manteau/manteau-detail/manteau-detail.component';
 import { TeeShirtDetailComponent } from './tee-shirt/tee-shirt-detail/tee-shirt-detail.component';
 import { AccessoiresDetailComponent } from './accessoires/accessoires-detail/accessoires-detail.component';
@@ -52,6 +52,7 @@ import { GestionCommandeComponent } from './back_office/gestion.commande/gestion
 import { FooterComponent } from './footer/footer.component';
 import { GuideDesTaillesComponent } from './guide-des-tailles/guide-des-tailles.component';
 import { AuthenticationGuard } from './auth/auth.guard/authentication.guard';
+import { AuthInterceptor } from './auth/auth.interceptor/auth.interceptor';
 @NgModule({
   declarations: [
     ConnexionComponent,
@@ -130,7 +131,11 @@ import { AuthenticationGuard } from './auth/auth.guard/authentication.guard';
       { path: '**', redirectTo: 'dashboard'}
     ])
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS, 
+    useClass:AuthInterceptor, 
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

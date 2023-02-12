@@ -1,5 +1,5 @@
-<div class="parent" *ngIf="products.length !=0">
-    <div class="item1" *ngIf="products && products.length>0">
+<div class="parent" *ngIf="user.panier.lignePanier.length !=0">
+    <div class="item1" *ngIf="user.panier.lignePanier && user.panier.lignePanier.length>0">
        <div class="intro">
         <h2>Resumé des articles</h2>
        </div>
@@ -12,12 +12,12 @@
         <span class="example-spacer"></span>
         <div>Quantite</div>
        </div> -->
-       <mat-card *ngFor="let acategorie of products; let i = index">
+       <mat-card *ngFor="let acategorie of user.panier.lignePanier; let i = index">
         <div class="content">
-            <img src="{{acategorie.image}}" height="140px" width="120px">
+            <img src="{{acategorie.article.image}}" height="140px" width="120px">
             <div id="position">
                 <button mat-raised-button>
-                    <mat-label>{{acategorie.taille}}</mat-label>
+                    <mat-label>{{acategorie.article.taille}}</mat-label>
                     <mat-select>
                         <mat-option>
                             M
@@ -31,16 +31,16 @@
                     </mat-select>
                 </button>
             </div>
-            <div id="position">{{acategorie.prix}}€</div>
+            <div id="position">{{acategorie.article.prix}}€</div>
             <div id="position">
-                <mat-icon id="quantité" (click)="inc(acategorie)">add</mat-icon>{{acategorie.quantite_stock}}<mat-icon id="quantité" (click)="dec(acategorie)">remove</mat-icon>
+                <mat-icon id="quantité" (click)="inc(acategorie)">add</mat-icon>{{acategorie.quantite}}<mat-icon id="quantité" (click)="dec(acategorie)">remove</mat-icon>
             </div>
         </div>
         <mat-card-actions align="end">
             <button mat-button ><mat-icon>check</mat-icon></button>
           <span class="example-spacer-1"></span>
 
-          <button mat-button (click)="removeItem(acategorie)"><mat-icon>cancel</mat-icon></button>
+          <button mat-button (click)="removeItem(acategorie.id_lignePanier)"><mat-icon>cancel</mat-icon></button>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -48,16 +48,16 @@
         <h2>Resumé de votre commande</h2>
         <div class="total">
             <p>Total</p>
-            <h1>{{grandTotal}}€</h1>
+            <h1>{{user.panier.prix_total}}€</h1>
         </div>
         <div class="example-button-row">
-            <button mat-raised-button class="commande">Passez votre commande</button>
+            <button mat-raised-button class="commande" (click)="passerUneCommande()">Passez votre commande</button>
         </div>
         <p id="promo" color="black">Appliquez un code de coupons pour avoir des réductions</p>
     </div>
 </div>
 
-<ng-container *ngIf="products.length ==0">
+<ng-container *ngIf="user.panier.lignePanier.length ==0">
     <div class="container">
         <div class="card">
             <h1 class="card-title">Mon panier</h1>

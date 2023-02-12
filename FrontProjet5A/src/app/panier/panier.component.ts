@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { article } from '../article';
+import { AuthenticationService } from '../auth/auth.service/auth.service';
+import { User } from '../model/user';
 import { panierService } from './panier.servcie';
 
 @Component({
@@ -35,33 +37,42 @@ export class PanierComponent implements OnInit {
 
   public products : any = [];
   public grandTotal !: number;
-  constructor(private panierService : panierService) { }
+  public user! : User;
+  constructor(private panierService : panierService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
-    this.panierService.getProducts()
+    this.authService.refreshuser();
+    this.user = this.authService.getUserFromLocalCache();
+    /*this.panierService.getProducts()
     .subscribe(res=>{
       this.products = res;
       this.grandTotal = this.panierService.getTotalPrice();
-    })
+    })*/
   }
 
+  
   removeItem(item: any){
-    this.panierService.removeCartItem(item);
+    this.panierService.removeToCart(item);
   }
 
+  passerUneCommande(){
+    this.panierService.passerCommande();
+  }
+
+  /*
   emptycart(){
     this.panierService.removeAllCart();
-  }
+  }*/
 
   inc(element:any) {
-    if(element.quantite_stock != 11){
-      element.quantite_stock += 1;
+    if(element.quantite != 11){
+      element.quantite += 1;
     }
   }
 
   dec(element:any) {
-    if(element.quantite_stock != 1){
-      element.quantite_stock -= 1;
+    if(element.quantite != 1){
+      element.quantite -= 1;
     }
   }
 

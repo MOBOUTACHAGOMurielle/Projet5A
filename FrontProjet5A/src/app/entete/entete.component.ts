@@ -31,9 +31,7 @@ export class EnteteComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.panierService.getProducts().subscribe(res=>{
-     this.totalItem = res.length
-    });
+    this.totalItem = this.panierService.user.panier.lignePanier.length
   }
 
   search(event:any){

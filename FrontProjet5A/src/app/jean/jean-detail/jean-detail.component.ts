@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterConfigOptions } from '@angular/router';
 import { article } from 'src/app/article';
 import { FormulaireArticleComponent } from 'src/app/formulaire-article/formulaire-article.component';
 import { articleService } from 'src/app/formulaire-article/formulaire-article.service';
@@ -22,7 +22,8 @@ export class JeanDetailComponent implements OnInit {
     private listeJean: jeanService,
     private panierService: panierService,
     private dialog: MatDialog,
-    private modifierArticleForm: articleService
+    private modifierArticleForm: articleService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -32,10 +33,12 @@ export class JeanDetailComponent implements OnInit {
       this.jean = liste.find(jean => jean.id_article == id)!;
       console.log('jean', this.jean);
     })
+
   }
 
-  addToCart(item:any, id:number){
-    this.panierService.addtoCart(item, id);
+  addToCart(id_a:number, quantite: number){
+    this.panierService.addtoCart(id_a, quantite, this.router.url);
+    location.reload();
   }
 
   onEdit(element:any){
